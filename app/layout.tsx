@@ -27,7 +27,7 @@ function AdsScript() {
   return (
     <Script crossOrigin='anonymous'
       id="adsbygoogle"
-      strategy="lazyOnload"
+      strategy="afterInteractive"
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5089904187246568">
     </Script>
   );
