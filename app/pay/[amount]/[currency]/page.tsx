@@ -1,14 +1,24 @@
 import { Metadata } from "next";
 import getSymbolFromCurrency from "currency-symbol-map";
 
+function getTitle(currency: string, amount: number) {
+  const symbol = getSymbolFromCurrency(currency);
+  return `Pay Jamie ${symbol}${amount}`
+}
+
 export function generateMetadata({
   params,
+  searchParams,
 }: {
-  params: { currency: string, amount: number };
+  params: { currency: string, amount: string },
+  searchParams: { gbp: string }
 }): Metadata {
-  const amount = params.amount;
+  const amount = parseFloat(params.amount);
   const currency = params.currency;
-  return {};
+  const title = getTitle(currency, amount);
+  return {
+    title: title,
+  };
 }
 
 function PayPalButton({ currency, amount, gbpValue }: { currency: string, amount: number, gbpValue: number }) {
@@ -44,13 +54,13 @@ export default function Pay({
   params: { currency: string, amount: string },
   searchParams: { gbp: string }
 }) {
-  const currency = params.currency.toUpperCase();
-  const amount = parseFloat(params.amount);
-  const symbol = getSymbolFromCurrency(currency);
   const precomputedGbpValue = parseFloat(searchParams.gbp);
+  const currency = params.currency;
+  const amount = parseFloat(params.amount);
+  const title = getTitle(currency, amount);
   return (
     <>
-      <h1>Pay Jamie {symbol}{amount.toFixed(2)}</h1>
+      <h1>{title}</h1>
       <PayPalButton currency={currency} amount={precomputedGbpValue || amount} gbpValue={precomputedGbpValue} />
       <VenmoButton currency={currency} amount={amount} />
     </>
