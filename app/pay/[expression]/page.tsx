@@ -39,75 +39,104 @@ function isNumberValid(n: number) {
   return n !== undefined && !isNaN(n);
 }
 
-function getDescription(currency: string, amount: number, gbpValue: number, usdValue: number) {
+function getDescription(currency: string, amount: number, gbpValue: number, usdValue: number, payPalLink: string, venmoLink: string) {
   const isUSD = currency === "USD";
   const isGBP = currency === "GBP";
 
+  const links = `PayPal: ${payPalLink}
+Venmo: ${venmoLink}
+  `;
+
   const twoDp = amount.toFixed(2);
   if (isUSD || isGBP) {
-    return "Please pay Jamie " + getSymbolFromCurrency(currency) + twoDp;
+    return "Please pay Jamie " + getSymbolFromCurrency(currency) + twoDp + links;
   }
 
   if (gbpValue) {
-    return "That's only £" + gbpValue.toFixed(2);
+    return "That's only £" + gbpValue.toFixed(2) + links;
   }
 
   if (usdValue) {
-    return "That's only £" + usdValue.toFixed(2);
+    return "That's only £" + usdValue.toFixed(2) + links;
   }
 
-  return "Please pay ya boi";
+  return "Please pay ya boi" + links;
 }
 
 export async function generateMetadata({
   params,
-  searchParams,
 }: {
   params: { expression: string },
   searchParams: {}
-}) {
+}): Promise<Metadata> {
   const expression = params.expression;
   if (!expression) {
     throw Error("oops no expresssion, but pretty sure this is impossible");
   }
-  const {amount, currency} = parseMoneyExpression(expression);
+  const { amount, currency } = parseMoneyExpression(expression);
   const res = await fetch(`${origin}/api/v1/to-gbp/${amount}/${currency}`);
   const body = await res.json() as any;
   const usd = parseFloat(body["USD"]);
   const gbp = parseFloat(body["GBP"]);
   const title = getTitle(currency, amount);
+
+  const gbpValue = getGBPValue(currency, amount, gbp);
+  const usdValue = getUsdValue(currency, amount, gbp);
+  const payPalLink = getPayPalLink(gbpValue);
+  const venmoLink = getVenmoLink(usdValue);
+
   const desc = getDescription(currency, amount, gbp, usd);
+
   return {
     title: title,
     description: desc,
   };
 }
 
-function PayPalButton({ currency, amount, gbpValue }: { currency: string, amount: number, gbpValue: number }) {
+function getPayPalLink(payPalValue: number) {
+  return `https://paypal.me/jamierpond/${payPalValue.toFixed(2)}`
+}
+
+function getGBPValue(currency: string, amount: number, gbpValue: number) {
   const isGBP = currency === "GBP";
   const payPalValue: number = isGBP ? amount : gbpValue || 0;
+  return payPalValue;
+}
+
+function PayPalButton({ currency, amount, gbpValue }: { currency: string, amount: number, gbpValue: number }) {
+  const payPalValue = getGBPValue(currency, amount, gbpValue);
   const message = ` (£${payPalValue.toFixed(2)})`
 
   return (
     <a
       className="block mx-auto my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      href={`https://paypal.me/jamierpond/${payPalValue}`}>PayPal {message}
+      href={getPayPalLink(payPalValue)}>PayPal {message}
     </a>
   );
 }
 
-function VenmoButton({ currency, amount, givenUsdValue }: { currency: string, amount: number, givenUsdValue: number }) {
-  const isUSD = currency === "USD";
-  const showUsdMessage = isNumberValid(givenUsdValue) || isUSD
-  const usdValue = isUSD ? amount : givenUsdValue || 0;
-  const usdMessage = ` ($${usdValue.toFixed(2)})`
-  const message = showUsdMessage ? usdMessage : "";
 
-  const url = `https://venmo.com/?txn=pay&audience=friends&recipients=jamiepond&amount=${amount}`;
+function getVenmoLink(value: number) {
+  return `https://venmo.com/?txn=pay&audience=friends&recipients=jamiepond&amount=${value}`;
+}
+
+function getUsdValue(currency: string, amount: number, givenUsdValue: number) {
+  const isUSD = currency === "USD";
+  const usdValue = isUSD ? amount : givenUsdValue || 0;
+  return usdValue;
+}
+
+function VenmoButton({ currency, amount, givenUsdValue }: { currency: string, amount: number, givenUsdValue: number }) {
+  const usdValue = getUsdValue(currency, amount, givenUsdValue);
+
+  const usdMessage = ` ($${usdValue.toFixed(2)})`
+  const isUSD = currency === "USD";
+  const showUsdMessage = isNumberValid(givenUsdValue) || isUSD;
+  const message = showUsdMessage ? usdMessage : "";
   return (
     <a
       className="block mx-auto my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      href={url}>
+      href={getVenmoLink(usdValue)}>
       Venmo {message}
     </a>
   );
@@ -124,7 +153,7 @@ export default async function Pay({
   if (!expression) {
     throw Error("oops no expresssion, but pretty sure this is impossible");
   }
-  const {amount, currency} = parseMoneyExpression(expression);
+  const { amount, currency } = parseMoneyExpression(expression);
   const res = await fetch(`${origin}/api/v1/to-gbp/${amount}/${currency}`);
   const body = await res.json() as any;
   const usd = parseFloat(body["USD"]);
