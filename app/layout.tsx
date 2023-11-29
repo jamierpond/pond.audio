@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Jamie Pond',
   description: 'Lead Audio Software Developer at mayk',
+  metadataBase: new URL("https://pond.audio"),
   openGraph: {
     siteName: 'Jamie Pond',
     type: 'website',
@@ -46,7 +47,14 @@ export default function RootLayout({
       <head>
         <AdsScript />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="flex min-h-screen flex-col items-center justify-between mt-20">
+          <div className="flex flex-col items-center justify-center">
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   )
 }
+
