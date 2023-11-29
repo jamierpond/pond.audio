@@ -1,24 +1,5 @@
-import { request } from "http";
 import { NextResponse, NextRequest } from "next/server";
-
-const countryToCurrency = require('country-to-currency');
-
-const EXKEY = "d1e30f7e92dc3596611520f221788b1d";
-
-async function convertCurrency(amount: number, from: string, to: string): Promise<number> {
-  const f = from.toUpperCase();
-  const t = to.toUpperCase();
-  const requestUrl = `http://api.exchangeratesapi.io/v1/convert?access_key=${EXKEY}&from=${f}&to=${t}&amount=${amount}`;
-  console.log("requtl: ", requestUrl);
-  const response = await fetch(requestUrl);
-
-  if (response.status !== 200) {
-    throw Error("Failed to convert currency");
-  }
-
-  const data = await response.json() as any;
-  return data.amount;
-}
+import { convertCurrency } from "../../../ConvertCurrency";
 
 export async function GET(request: NextRequest) {
   const pathName = request.nextUrl.pathname;
@@ -29,11 +10,18 @@ export async function GET(request: NextRequest) {
   const currency = split[5];
 
   if (currency.toUpperCase() == "GBP") {
-    return NextResponse.json({"amount": amount});
+    const usdAmount: number = await convertCurrency(amount, currency, "USD");
+    return NextResponse.json({ "USD": usdAmount});
   }
 
+  if (currency.toUpperCase() == "USD") {
+    const usdAmount: number = await convertCurrency(amount, currency, "GBP");
+    return NextResponse.json({ "GBP": usdAmount});
+  }
+
+  const usdAmount: number = await convertCurrency(amount, currency, "USD");
   const gbpAmount: number = await convertCurrency(amount, currency, "GBP");
 
-  return NextResponse.json({"amount": gbpAmount});
+  return NextResponse.json({ "GBP": gbpAmount, "USD": usdAmount });
 }
 

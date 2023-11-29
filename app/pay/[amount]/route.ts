@@ -23,16 +23,22 @@ export async function GET(request: NextRequest) {
 
    const r = await fetch(`${origin}/api/v1/to-gbp/${amount}/${userCurrency}`);
    if (r.status !== 200) {
+     // error, just assume usd
      return NextResponse.redirect(request.url + "/usd");
    }
 
   const data = await r.json();
   console.log("data", data);
-  const gbpPrice = data.amount;
+  const gbpPrice = data["GBP"];
+  const usdPrice = data["USD"];
 
-  let rdUrl = request.url + `/${userCurrency}`;
-  if (userCurrency !== "GBP") {
-    rdUrl += `?gbp=${gbpPrice}`;
+  let rdUrl = new URL(request.url + `/${userCurrency}`);
+  if (gbpPrice) {
+    rdUrl.searchParams.append("gbp", gbpPrice);
+  }
+
+  if (usdPrice) {
+    rdUrl.searchParams.append("usd", usdPrice);
   }
 
   const redirect = NextResponse.redirect(rdUrl);

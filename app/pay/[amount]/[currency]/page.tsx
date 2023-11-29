@@ -35,11 +35,14 @@ export function generateMetadata({
   searchParams,
 }: {
   params: { currency: string, amount: string },
-  searchParams: { gbp: string }
+  searchParams: { gbp: string, usd: string }
 }): Metadata {
   const amount = parseFloat(params.amount);
   const currency = params.currency;
+  const usd = parseFloat(searchParams.usd);
+  const gbp = parseFloat(searchParams.gbp);
   const title = getTitle(currency, amount);
+  const desc = getDescription(currency, amount, gbp, usd);
   return {
     title: title,
   };
@@ -63,8 +66,9 @@ function PayPalButton({ currency, amount, gbpValue }: { currency: string, amount
 function VenmoButton({ currency, amount, givenUsdValue }: { currency: string, amount: number, givenUsdValue?: number }) {
   const isUSD = currency === "USD";
   const givenValueIsWonky = givenUsdValue === undefined || isNaN(givenUsdValue);
-  const showUsdMessage = !isUSD && !givenValueIsWonky;
-  const usdMessage = ` ($${givenUsdValue?.toFixed(2)})`
+  const showUsdMessage = givenValueIsWonky;
+  const usdValue = isUSD ? amount : givenUsdValue || 0;
+  const usdMessage = ` ($${usdValue.toFixed(2)})`
   const message = showUsdMessage ? usdMessage : "";
 
   const url = `https://venmo.com/?txn=pay&audience=friends&recipients=jamiepond&amount=${amount}`;
