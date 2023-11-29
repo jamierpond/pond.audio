@@ -85,7 +85,7 @@ export async function generateMetadata({
   const payPalLink = getPayPalLink(gbpValue);
   const venmoLink = getVenmoLink(usdValue);
 
-  const desc = getDescription(currency, amount, gbp, usd);
+  const desc = getDescription(currency, amount, gbp, usd, payPalLink, venmoLink);
 
   return {
     title: title,
