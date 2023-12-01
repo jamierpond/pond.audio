@@ -4,6 +4,12 @@ import getSymbolFromCurrency from "currency-symbol-map";
 const isDev = process.env.NODE_ENV === "development";
 const origin = isDev ? "http://localhost:3000" : "https://pond.audio";
 
+function numberWithCommas(x: number): string {
+    // round to two decimal places
+    const rounded = Math.round(x * 100) / 100;
+    return rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function parseMoneyExpression(expression: string) {
   const regexForNumbers = new RegExp("[0-9\.]+");
   const regexForString = new RegExp("[a-z]+|[A-Z]+");
@@ -28,11 +34,9 @@ function parseMoneyExpression(expression: string) {
   return { amount: amount, currency: currency };
 }
 
-console.log(parseMoneyExpression("40.001usd"));
-
 function getTitle(currency: string, amount: number) {
   const symbol = getSymbolFromCurrency(currency);
-  return `Pay Jamie ${symbol}${amount.toFixed(2)}`
+  return `Pay Jamie ${symbol}${numberWithCommas(amount)}`;
 }
 
 function isNumberValid(n: number) {
@@ -48,9 +52,13 @@ PayPal: ${payPalLink}
 Venmo: ${venmoLink}
   `;
 
-  const twoDp = amount.toFixed(2);
+  const twoDp = numberWithCommas(amount);
   if (isUSD || isGBP) {
     return "Please pay Jamie " + getSymbolFromCurrency(currency) + twoDp + links;
+  }
+
+  if (gbpValue && usdValue) {
+    return "That's only $" + usdValue.toFixed(2) + " or £" + gbpValue.toFixed(2) + "!" + links;
   }
 
   if (gbpValue) {
@@ -106,7 +114,8 @@ function getGBPValue(currency: string, amount: number, gbpValue: number) {
 
 function PayPalButton({ currency, amount, gbpValue }: { currency: string, amount: number, gbpValue: number }) {
   const payPalValue = getGBPValue(currency, amount, gbpValue);
-  const message = ` (£${payPalValue.toFixed(2)})`
+  const formattedAmount = numberWithCommas(payPalValue);
+  const message = ` (£${formattedAmount})`
 
   return (
     <a
@@ -118,7 +127,7 @@ function PayPalButton({ currency, amount, gbpValue }: { currency: string, amount
 
 
 function getVenmoLink(value: number) {
-  return `https://venmo.com/?txn=pay&audience=friends&recipients=jamiepond&amount=${value}`;
+  return `https://venmo.com/?txn=pay&audience=friends&recipients=jamiepond&amount=${value.toFixed(2)}`;
 }
 
 function getUsdValue(currency: string, amount: number, givenUsdValue: number) {
@@ -129,8 +138,8 @@ function getUsdValue(currency: string, amount: number, givenUsdValue: number) {
 
 function VenmoButton({ currency, amount, givenUsdValue }: { currency: string, amount: number, givenUsdValue: number }) {
   const usdValue = getUsdValue(currency, amount, givenUsdValue);
-
-  const usdMessage = ` ($${usdValue.toFixed(2)})`
+  const formattedAmount = numberWithCommas(usdValue);
+  const usdMessage = ` ($${formattedAmount})`
   const isUSD = currency === "USD";
   const showUsdMessage = isNumberValid(givenUsdValue) || isUSD;
   const message = showUsdMessage ? usdMessage : "";
