@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     locale: 'en_IE',
     url: 'https://pond.audio',
     images: [{
-      url: '/texture.jpg',
-      alt: 'Dark blue and purple moody texture',
+      url: '/pup.jpg',
+      alt: 'crazy noot',
     }],
   },
 }

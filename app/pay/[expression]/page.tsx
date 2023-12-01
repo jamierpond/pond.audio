@@ -56,7 +56,7 @@ Venmo: ${venmoLink}
   }
 
   if (gbpValue && usdValue) {
-    return "That's only $" + usdValue.toFixed(2) + " or £" + gbpValue.toFixed(2) + "!" + links;
+    return "That's only $" + usdValue.toFixed(2) + " or £" + gbpValue.toFixed(2) + " " + links;
   }
 
   if (gbpValue) {
