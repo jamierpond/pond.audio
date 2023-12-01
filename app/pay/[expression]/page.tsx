@@ -5,9 +5,7 @@ const isDev = process.env.NODE_ENV === "development";
 const origin = isDev ? "http://localhost:3000" : "https://pond.audio";
 
 function numberWithCommas(x: number): string {
-    // round to two decimal places
-    const rounded = Math.round(x * 100) / 100;
-    return rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function parseMoneyExpression(expression: string) {
