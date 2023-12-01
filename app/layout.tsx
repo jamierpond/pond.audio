@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Lead Audio Software Developer at mayk',
   metadataBase: new URL("https://pond.audio"),
   openGraph: {
-    siteName: 'Jamie Pond',
+    siteName: 'Jamie Pond | Lead Audio Software Developer',
     type: 'website',
     locale: 'en_IE',
     url: 'https://pond.audio',
