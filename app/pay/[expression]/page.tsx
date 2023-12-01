@@ -43,7 +43,8 @@ function getDescription(currency: string, amount: number, gbpValue: number, usdV
   const isUSD = currency === "USD";
   const isGBP = currency === "GBP";
 
-  const links = `PayPal: ${payPalLink}
+  const links = `
+PayPal: ${payPalLink}
 Venmo: ${venmoLink}
   `;
 
@@ -162,8 +163,8 @@ export default async function Pay({
   return (
     <>
       <h1>{title}</h1>
-      <PayPalButton currency={currency} amount={amount} gbpValue={gbp} />
       <VenmoButton currency={currency} amount={amount} givenUsdValue={usd} />
+      <PayPalButton currency={currency} amount={amount} gbpValue={gbp} />
     </>
   );
 }
