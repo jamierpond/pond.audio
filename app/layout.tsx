@@ -46,7 +46,7 @@ function Nav() {
           <a href="/email" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
             Contact
           </a>
-          <a href="https://als.pond.audio/" className="block mx-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+          <a href="https://als.pond.audio/" className="block mt-4 lg:mx-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
             Als Exploder
           </a>
           <a href="/.config" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
