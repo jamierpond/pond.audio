@@ -4,7 +4,7 @@ export default function Page() {
     <div>
       <a
         className="text-2xl"
-        href="/blog/hello">Click me, I point to a blog which hasn't been written yet.</a>
+        href="/blog/hello">Click me, I point to a blog which hasnt been written yet.</a>
     </div>
   );
 }
