@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
 export async function GET() {
-  return NextResponse.redirect("https://www.tiktok.com/@marrotyliano");
+  return NextResponse.redirect("mailto:jamiepond259@gmail.com");
 }
+
