@@ -49,9 +49,6 @@ function Nav() {
           <a href="https://als.pond.audio/" className="block mt-4 lg:mx-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
             Als Exploder
           </a>
-          <a href="/.config" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-            .config
-          </a>
         </div>
       </div>
     </nav>
@@ -70,7 +67,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Nav />
-        <div className="flex min-h-screen flex-col items-center justify-between mt-20">
+        <div className="flex min-h-screen flex-col items-center justify-between">
           <div className="flex flex-col items-center justify-center">
             {children}
           </div>
