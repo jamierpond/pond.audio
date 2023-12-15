@@ -17,8 +17,11 @@ export default function Page() {
       <h1 className="text-3xl font-bold text-center">
         Jamie Pond has completed {progress.toFixed(2)}% of life.
       </h1>
-      <h2>Born on {birthday.toDateString()}</h2>
       <h2
+        className="mt-5"
+      >Born on {birthday.toDateString()}</h2>
+      <h2
+      className="mt-2"
       >Expected to die on {deathDay.toDateString()}</h2>
       <div className="flex items-center justify-center my-20">
         <div className="relative">
