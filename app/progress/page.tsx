@@ -4,7 +4,7 @@ import 'tailwindcss/tailwind.css'; // Import TailwindCSS
 import { Metadata } from 'next';
 
 const birthday = new Date('1997-11-12');
-const lifeExpectancy = 85;
+const lifeExpectancy = 105;
 const deathDay = new Date(birthday.getFullYear() + lifeExpectancy, birthday.getMonth(), birthday.getDate());
 const progress = ((Date.now() - birthday.getTime()) / (deathDay.getTime() - birthday.getTime())) * 100;
 const radius = 45;
