@@ -28,7 +28,7 @@ export function SecondsRemaining({ birthDate, deathDate }: { birthDate: Date, de
   }, [birthDate, deathDate]);
 
   return (
-    <div>
+    <div className="mt-10">
       <h1>Time Remaining</h1>
       <h2>{timeRemaining.days} days, {timeRemaining.hours} hours, {timeRemaining.minutes} minutes, {timeRemaining.seconds} seconds</h2>
     </div>
