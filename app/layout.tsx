@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     images: images,
   },
   twitter: {
-    card: 'summary_large_image',
+    title: title,
+    description: description,
+    images: images,
+    card: 'summary',
     site: "https://pond.audio",
     siteId: "jamiepondx",
-    creator: "jamiepondx",
+    creator: "@jamiepondx",
     creatorId: "jamiepondx",
-    description: description,
-    title: title,
-    images: images,
   },
 }
 
