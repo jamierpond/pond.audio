@@ -1,5 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
-import { createCanvas } from "canvas";
+// import { createCanvas } from "canvas";
+const cv = require("canvas");
 
 export async function GET(request: NextRequest) {
   const pathName = request.nextUrl.pathname;
@@ -12,7 +13,7 @@ export async function GET(request: NextRequest) {
   const width = 512;
   const height = width;
   const lineWidth = width * lineWithRatio;
-  const canvas = createCanvas(width, height);
+  const canvas = cv.createCanvas(width, height);
   const context = canvas.getContext('2d');
 
   // Scale the circles based on the provided width and height
@@ -38,7 +39,7 @@ export async function GET(request: NextRequest) {
   context.lineWidth = lineWidth;
   context.stroke();
 
-
+  // bump, bump
   // Draw check mark with squared ends and a right angle
   context.beginPath();
   context.lineCap = 'butt'; // Squared-off ends
@@ -63,10 +64,10 @@ export async function GET(request: NextRequest) {
   context.lineTo(checkEndX, checkEndY); // Diagonal up to the end point
   context.stroke();
 
-  const png = canvas.createPNGStream().read();
-  return new NextResponse(png, {
+  const imageData = canvas.createJPEGStream().read();
+  return new NextResponse(imageData, {
     headers: {
-      "Content-Type": "image/png",
+      "Content-Type": "image/jpeg",
       "Cache-Control": "public, max-age=31536000, immutable",
     },
   });
