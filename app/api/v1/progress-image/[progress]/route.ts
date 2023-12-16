@@ -1,5 +1,4 @@
 import { NextResponse, NextRequest } from "next/server";
-import { createCanvas } from "canvas";
 
 export async function GET(request: NextRequest) {
   const pathName = request.nextUrl.pathname;
@@ -12,64 +11,43 @@ export async function GET(request: NextRequest) {
   const width = 512;
   const height = width;
   const lineWidth = width * lineWithRatio;
-  const canvas = createCanvas(width, height);
-  const context = canvas.getContext('2d');
-
-  // Scale the circles based on the provided width and height
   const radius = Math.min(width, height) / 2 - lineWidth; // 10 is the stroke width
   const centerX = width / 2;
   const centerY = height / 2;
 
-  // fill background black
-  context.fillStyle = 'black';
-  context.fillRect(0, 0, width, height);
+  // SVG Circle Element
+  const backgroundCircle = `<circle cx="${centerX}" cy="${centerY}" r="${radius}" stroke="#ddd" stroke-width="${lineWidth}" fill="black"/>`;
 
-  // Background circle
-  context.beginPath();
-  context.arc(centerX, centerY, radius, 0, Math.PI * 2);
-  context.strokeStyle = '#ddd';
-  context.lineWidth = lineWidth;
-  context.stroke();
+  // ...
+  const fullCircle = 2 * Math.PI * radius;
+  const progressLength = (amount / 100) * fullCircle;
+  const offset = fullCircle - progressLength; // Offset the starting point to the top
 
-  // Foreground circle (progress)
-  context.beginPath();
-  context.arc(centerX, centerY, radius, -Math.PI / 2, -Math.PI / 2 + (Math.PI * 2) * (amount / 100));
-  context.strokeStyle = 'green';
-  context.lineWidth = lineWidth;
-  context.stroke();
+  const foregroundCircle = `<circle cx="${centerX}" cy="${centerY}" r="${radius}" stroke="green" stroke-width="${lineWidth}" fill="none"
+    stroke-dasharray="${fullCircle}" stroke-dashoffset="${offset}" transform="rotate(-90 ${centerX} ${centerY})"/>`;
 
-
-  // Draw check mark with squared ends and a right angle
-  context.beginPath();
-  context.lineCap = 'butt'; // Squared-off ends
-  context.strokeStyle = 'white';
-  context.lineWidth = lineWidth * 0.6; // Adjust the thickness of the check mark
-
-  // Start point of the check mark
+  // SVG Check Mark
   const checkStartX = centerX - radius * 0.4;
   const checkStartY = centerY + radius * 0.1;
-
-  // Middle point of the check mark (right angle)
   const checkMidX = centerX - radius * 0.1;
   const checkMidY = centerY + radius * 0.4;
-
-  // End point of the check mark
   const checkEndX = centerX + radius * 0.5;
   const checkEndY = centerY - radius * 0.2;
 
-  // Draw the check mark
-  context.moveTo(checkStartX, checkStartY);
-  context.lineTo(checkMidX, checkMidY); // Down to the middle point (right angle)
-  context.lineTo(checkEndX, checkEndY); // Diagonal up to the end point
-  context.stroke();
+  const checkMark = `<path d="M${checkStartX},${checkStartY} L${checkMidX},${checkMidY} L${checkEndX},${checkEndY}" stroke="white" stroke-width="${lineWidth * 0.6}" fill="none"/>`;
 
-  const png = canvas.createPNGStream().read();
-  return new NextResponse(png, {
+  // SVG Element
+  const svg = `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+    ${backgroundCircle}
+    ${foregroundCircle}
+    ${checkMark}
+  </svg>`;
+
+  return new NextResponse(svg, {
     headers: {
-      "Content-Type": "image/png",
+      "Content-Type": "image/svg+xml",
       "Cache-Control": "public, max-age=31536000, immutable",
     },
   });
 }
-
 
