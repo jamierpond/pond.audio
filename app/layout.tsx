@@ -5,19 +5,32 @@ import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const images = [{
+  url: '/pup.jpg',
+  alt: 'crazy noot',
+}];
+const title = 'Jamie Pond | Lead Audio Software Developer';
+const description = 'Lead Audio Software Developer at mayk';
+
 export const metadata: Metadata = {
-  title: 'Jamie Pond',
-  description: 'Lead Audio Software Developer at mayk',
+  title: title,
+  description: description,
   metadataBase: new URL("https://pond.audio"),
   openGraph: {
     siteName: 'Jamie Pond | Lead Audio Software Developer',
     type: 'website',
     locale: 'en_IE',
     url: 'https://pond.audio',
-    images: [{
-      url: '/pup.jpg',
-      alt: 'crazy noot',
-    }],
+    images: images,
+  },
+  twitter: {
+    site: "https://pond.audio",
+    siteId: "jamiepondx",
+    creator: "jamiepondx",
+    creatorId: "jamiepondx",
+    description: description,
+    title: title,
+    images: images,
   },
 }
 
