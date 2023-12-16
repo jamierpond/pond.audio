@@ -24,6 +24,10 @@ export async function generateMetadata({
     twitter: {
       title: title,
       description: desc,
+      images: [{
+        url: '/api/v1/progress-image/' + progress.toFixed(2),
+        alt: 'percent of life completed, ' + progress.toFixed(2) + '%',
+      }],
     },
   };
 }
