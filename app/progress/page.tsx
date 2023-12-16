@@ -2,6 +2,7 @@ import React from 'react';
 import 'tailwindcss/tailwind.css'; // Import TailwindCSS
 import Image from 'next/image';
 import { Metadata } from 'next';
+import { SecondsRemaining } from './SecondsRemaining';
 
 const birthday = new Date('1997-11-12');
 const lifeExpectancy = 105;
@@ -56,6 +57,7 @@ export default function Page() {
       <h2
         className="mt-2"
       >Expected to die on {deathDay.toDateString()}</h2>
+      <SecondsRemaining birthDate={birthday} deathDate={deathDay} />
       <div className="flex items-center justify-center my-20">
         <div className="relative">
           <Image src={"/api/v1/progress-image/" + progress.toFixed(2)} width="100" height="100" alt="Jamie Pond has completed 100% of life." />
