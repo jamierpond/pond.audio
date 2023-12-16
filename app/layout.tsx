@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     images: images,
   },
   twitter: {
+    card: 'summary_large_image',
     site: "https://pond.audio",
     siteId: "jamiepondx",
     creator: "jamiepondx",
