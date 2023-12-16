@@ -17,8 +17,12 @@ export default function Home() {
         <p>I&apos;m a mentor in the ADC 2023 Mentorship Program.</p>
         <p>Please feel free to hit me up!</p>
         <div className="flex flex-row space-x-4">
-          <a href="https://www.linkedin.com/in/jamierpond"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" className="w-8 h-8" /></a>
-          <a href="https://twitter.com/jamiepondx"><img src="https://seeklogo.com/images/T/twitter-x-logo-101C7D2420-seeklogo.com.png?v=638258862800000000" className="w-8 h-8" /></a>
+          <a href="https://www.linkedin.com/in/jamierpond">
+            <img alt="LinkedIn Logo" src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" className="w-8 h-8" />
+          </a>
+          <a href="https://twitter.com/jamiepondx">
+            <img alt="X logo" src="https://seeklogo.com/images/T/twitter-x-logo-101C7D2420-seeklogo.com.png?v=638258862800000000" className="w-8 h-8" />
+          </a>
         </div>
       </div>
       <GithubCalendar />
