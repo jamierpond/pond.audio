@@ -1,11 +1,14 @@
 import GithubCalendar from "./GithubCalendar";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-      <h1 className="text-4xl font-bold text-center">
-        Jamie Pond
-      </h1>
+      <Link href="/jamie.vcf">
+        <h1 className="text-4xl font-bold text-center">
+          Jamie Pond
+        </h1>
+      </Link>
       <h3 className="text-2xl font-bold text-center mt-4">
         <a href="mailto:jamie@mayk.it">jamie@mayk.it</a>
       </h3>
