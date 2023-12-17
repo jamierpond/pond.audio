@@ -5,10 +5,13 @@ N:Pond;Jamie;;;
 ORG:mayk inc
 TITLE:Lead Audio Software Engineer
 TEL;TYPE=USA,VOICE:(424) 413-1792
-TEL;TYPE=UK,VOICE:+44 7824711084
-EMAIL:jamie@mayk.it
-EMAIL:jamie@pond.audio
-URL:https://pond.audio
-URL:https://mayk.it
+TEL;TYPE=UK/WhatsApp,VOICE:+44 7824711084
+EMAIL;TYPE=Personal:jamie@pond.audio
+EMAIL;TYPE=Work:jamie@mayk.it
+URLhttps://pond.audio
+URL;TYPE=GitHub:https://pond.audio/github
+URL;TYPE=LinkedIn:https://pond.audio/linkedin
+URL;TYPE=X:https://pond.audio/x
+URL;TYPE=Work:https://mayk.it
 END:VCARD
 

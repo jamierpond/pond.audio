@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-
 export async function GET() {
-  return NextResponse.redirect("https://pond.audio/jamie.vcf");
+  return NextResponse.redirect("https://x.com/jamiepondx");
 }
+
