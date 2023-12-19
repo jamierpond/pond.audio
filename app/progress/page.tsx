@@ -3,6 +3,7 @@ import 'tailwindcss/tailwind.css'; // Import TailwindCSS
 import Image from 'next/image';
 import { Metadata } from 'next';
 import { SecondsRemaining } from './SecondsRemaining';
+import { createImage } from '../api/v1/progress-image/[progress]/CreateImage';
 
 const birthday = new Date('1997-11-12');
 const lifeExpectancy = 105;
@@ -46,6 +47,7 @@ export async function generateMetadata({
 
 
 export default function Page() {
+  const imageSvg = createImage(progress, 100, 100);
   return (
     <div className="flex text-center flex-col items-center justify-center">
       <h1 className="text-3xl font-bold text-center">
@@ -60,7 +62,12 @@ export default function Page() {
       <SecondsRemaining birthDate={birthday} deathDate={deathDay} />
       <div className="flex items-center justify-center my-10">
         <div className="relative">
-          <Image src={"/api/v1/progress-image/" + progress.toFixed(2)} width="100" height="100" alt="Jamie Pond has completed 100% of life." />
+          <Image
+            src={'data:image/svg+xml;base64,' + btoa(imageSvg)}
+            alt="Progress bar"
+            width={100}
+            height={100}
+          />
         </div>
       </div>
     </div>
