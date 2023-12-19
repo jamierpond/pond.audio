@@ -6,7 +6,7 @@ import Script from 'next/script'
 const inter = Inter({ subsets: ['latin'] })
 
 const images = [{
-  url: '/pup.jpg',
+  url: '/pup400.jpg',
   alt: 'crazy noot',
 }];
 const title = 'Jamie Pond | Lead Audio Software Developer';
