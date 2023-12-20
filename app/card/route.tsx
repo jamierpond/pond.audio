@@ -7,9 +7,11 @@ const vcfUrl = `${urlBase}/jamie.vcf`;
 
 export async function GET(req: NextRequest) {
   const userAgent = req.headers.get("user-agent")?.toLowerCase();
+  console.log(userAgent);
   const isDesktop = userAgent?.includes("windows") || userAgent?.includes("mac");
+  console.log("isDesktop", isDesktop);
   if (isDesktop) {
-    return NextResponse.redirect(vcfUrl);
+    return NextResponse.redirect(scanMeUrl);
   }
-  return NextResponse.redirect(scanMeUrl);
+  return NextResponse.redirect(vcfUrl);
 }
