@@ -1,6 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
 
-
 export async function GET(req: NextRequest) {
   const isDev = process.env.NODE_ENV === "development";
   const urlBase = isDev ? "http://localhost:3000" : "https://pond.audio";
