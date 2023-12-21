@@ -7,7 +7,14 @@ export default function Page() {
       <p>Scan this QR code to add add my contact details!</p>
       <QRCode
         className="mt-8"
-        value="https://pond.audio/jamie.vcf" />
+        value="https://pond.audio/jamie.vcf"
+      />
+      <p className="mt-8">Or, add me on:</p>
+      <a href="https://pond.audio/github"><u>GitHub</u></a>
+      <a href="https://pond.audio/linkedin"><u>LinkedIn</u></a>
+      <a href="https://pond.audio/x"><u>X</u></a>
+      <a href="https://www.instagram.com/jamierpond"><u>Instagram</u></a>
+      <a href="https://mayk.it/@jamie"><u>mayk</u></a>
     </div>
   );
 }
