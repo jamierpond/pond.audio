@@ -1,7 +1,11 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
-const jetbrainsFont = JetBrains_Mono({ subsets: ['latin'] })
+
+const jetbrainsFont = JetBrains_Mono({
+  subsets: ['latin'],
+  fallback: 'monospace',
+});
 
 const images = [{
   url: '/pup400.jpg',
@@ -40,11 +44,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preload" href="/fonts/JetBrainsMono-Thin.ttf" as="font" type="font/ttf" />
-        <link rel="preload" href="/fonts/JetBrainsMono-Bold.ttf" as="font" type="font/ttf" />
-        <link rel="preload" href="/fonts/JetBrainsMono-ExtraBold.ttf" as="font" type="font/ttf" />
-      </head>
       <body className={jetbrainsFont.className}>
         <div className="flex min-h-screen flex-col items-center justify-between mt-20">
           <div className="flex flex-col items-center justify-center">
