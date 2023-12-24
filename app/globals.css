@@ -8,6 +8,7 @@
   @font-face {
     font-family: 'mayk-thin';
     src: url('/fonts/JetBrainsMono-Thin.ttf');
+    font-display: swap;
   }
 
   @font-face {
@@ -18,6 +19,7 @@
   @font-face {
     font-family: 'mayk-title';
     src: url('/fonts/JetBrainsMono-ExtraBold.ttf');
+    font-display: swap;
   }
 
   h1, h2, h3, h4, h5, h6 {
