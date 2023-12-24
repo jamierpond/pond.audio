@@ -4,7 +4,7 @@ import { JetBrains_Mono } from 'next/font/google'
 
 const jetbrainsFont = JetBrains_Mono({
   subsets: ['latin'],
-  fallback: 'monospace',
+  fallback: ['monospace'],
 });
 
 const images = [{
