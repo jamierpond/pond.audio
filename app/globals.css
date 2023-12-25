@@ -4,6 +4,33 @@
 
 
 @layer base {
+
+  @font-face {
+    font-family: 'mayk-thin';
+    src: url('/fonts/JetBrainsMono-Thin.ttf');
+  }
+
+  @font-face {
+    font-family: 'mayk-thick';
+    src: url('/fonts/JetBrainsMono-Bold.ttf');
+  }
+
+  @font-face {
+    font-family: 'mayk-title';
+    src: url('/fonts/JetBrainsMono-ExtraBold.ttf');
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'mayk-title';
+  }
+
+  p, li, a, div {
+    font-family: 'mayk-thin';
+  }
+
+  b {
+    font-family: 'mayk-thick';
+  }
 }
 
 

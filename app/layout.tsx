@@ -1,11 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { JetBrains_Mono } from 'next/font/google'
+import { Inter } from 'next/font/google'
+import Script from 'next/script'
 
-const jetbrainsFont = JetBrains_Mono({
-  subsets: ['latin'],
-  fallback: ['monospace'],
-});
+const inter = Inter({ subsets: ['latin'] })
 
 const images = [{
   url: '/pup400.jpg',
@@ -37,6 +35,22 @@ export const metadata: Metadata = {
   },
 }
 
+// <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5089904187246568"
+//      crossorigin="anonymous"></script>
+
+function AdsScript() {
+  return (
+    <Script crossOrigin='anonymous'
+      id="adsbygoogle"
+      async
+      strategy="lazyOnload"
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5089904187246568">
+    </Script>
+  );
+}
+
+
+
 export default function RootLayout({
   children,
 }: {
@@ -44,7 +58,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={jetbrainsFont.className}>
+      <head>
+        <AdsScript />
+      </head>
+      <body className={inter.className}>
         <div className="flex min-h-screen flex-col items-center justify-between mt-20">
           <div className="flex flex-col items-center justify-center">
             {children}
