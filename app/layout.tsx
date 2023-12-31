@@ -1,14 +1,16 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 import Script from 'next/script'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = JetBrains_Mono({ subsets: ['latin'] })
 
 const images = [{
   url: '/pup400.jpg',
   alt: 'crazy noot',
 }];
+
+// todo fix css for text
 const title = 'Jamie Pond | Lead Audio Software Developer';
 const description = 'Lead Audio Software Developer at mayk';
 
