@@ -1,9 +1,9 @@
 import './globals.css'
+import { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
-import Script from 'next/script'
 
-const inter = JetBrains_Mono({ subsets: ['latin'] })
+const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
 
 const images = [{
   url: '/pup400.jpg',
@@ -37,33 +37,14 @@ export const metadata: Metadata = {
   },
 }
 
-// <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5089904187246568"
-//      crossorigin="anonymous"></script>
-
-function AdsScript() {
-  return (
-    <Script crossOrigin='anonymous'
-      id="adsbygoogle"
-      async
-      strategy="lazyOnload"
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5089904187246568">
-    </Script>
-  );
-}
-
-
-
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) {
   return (
     <html lang="en">
-      <head>
-        <AdsScript />
-      </head>
-      <body className={inter.className}>
+      <body className={jetbrainsMono.className}>
         <div className="flex min-h-screen flex-col items-center justify-between mt-20">
           <div className="flex flex-col items-center justify-center">
             {children}
