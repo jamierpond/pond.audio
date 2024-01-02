@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
+    <div className="w-full">
       <Link href="/jamie.vcf">
         <h1 className="text-4xl font-bold text-center">
           Jamie Pond
@@ -29,6 +29,6 @@ export default function Home() {
         </div>
       </div>
       <GithubCalendar />
-    </>
+    </div>
   );
 }
