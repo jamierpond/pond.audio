@@ -1,5 +1,4 @@
 import React from 'react';
-import 'tailwindcss/tailwind.css'; // Import TailwindCSS
 import Image from 'next/image';
 import { Metadata } from 'next';
 import { SecondsRemaining } from './SecondsRemaining';
