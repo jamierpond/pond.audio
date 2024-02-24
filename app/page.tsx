@@ -10,7 +10,7 @@ export default function Home() {
         </h1>
       </Link>
       <h3 className="text-2xl font-bold text-center mt-4">
-        <a href="mailto:jamie@mayk.it">jamie@(pond.audio|mayk.it)</a>
+        <a href="mailto:jamie@mayk.it">jamie@pond.audio</a>
       </h3>
       <div className="flex flex-col text-center items-center justify-center p-8 space-y-8">
         <p>I&apos;m Lead Audio Software Engineer at <a href="https://www.mayk.it"><b>mayk</b></a>.</p>
