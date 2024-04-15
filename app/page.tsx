@@ -18,7 +18,7 @@ export default function Home() {
         <p>I spoke at ADC 2021 about <a href="https://www.youtube.com/watch?v=X8dPANPmC7E&ab_channel=JUCE"><b>using compiler intrinsics in your code</b></a>.</p>
         <p>I spoke at ADC 2023 about <a href="https://conference.audio.dev/session/an-engineers-guide-to-prototyping-building-ai-music-tools-for-the-99/"><b>mayk&apos;s approach to prototyping</b></a>.</p>
         <p>I&apos;m a mentor in the ADC 2023 Mentorship Program.</p>
-        <p><a href="/card"><u>Please feel free to hit me up!</u></a></p>
+        <p><a href="mailto:jamie@pond.audio"><u>Please feel free to hit me up!</u></a></p>
         <div className="flex flex-row space-x-4">
           <a href="https://www.linkedin.com/in/jamierpond">
             <img alt="LinkedIn Logo" src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" className="w-8 h-8" />
