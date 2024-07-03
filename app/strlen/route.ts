@@ -2,6 +2,7 @@
 // C++ On Sea presentation. This the link will live on!
 import { NextResponse } from "next/server";
 export async function GET() {
-  return NextResponse.redirect("https://godbolt.org/z/nPWTP58v4");
+  return NextResponse.redirect("https://godbolt.org/z/c58fT7rKE");
 }
+
 
