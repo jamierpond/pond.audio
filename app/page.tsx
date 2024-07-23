@@ -13,6 +13,19 @@ const MAIL = "mailto:jamie@pond.audio";
 const CPPCON2024 = "https://cppcon.speaker.fish/proposals/view/F8E3C31898";
 const CPPONSEA2024 = "https://cpponsea.uk/2024/session/introduction-to-swar-simd-within-a-register-the-next-performance-frontier-you-havent-heard-of";
 
+interface ConferenceItemProps {
+  link: string;
+  conference: string;
+  text: string;
+}
+
+function ConferenceItem({ link, conference, text }: ConferenceItemProps) {
+  return (
+    <li className="text-left mb-4">
+      <a href={link}><b><u>{conference}</u> - </b> {text}</a>
+    </li>
+  );
+}
 
 export default function Home() {
   return (
@@ -27,43 +40,41 @@ export default function Home() {
       </h3>
       <div className="flex flex-col text-center items-center justify-center p-8 space-y-8">
         <p>
-            I&apos;m Lead Audio Software Engineer at
-            <a href={MAYK}><b>mayk</b></a>.
+          I&apos;m Lead Audio Software Engineer at
+          <a href={MAYK}><b> mayk</b></a>.
         </p>
         <p>
-            I studied <b>Sound & Music Computing MSc</b> at <a href={QMUL}>
+          I studied <b>Sound & Music Computing MSc</b> at <a href={QMUL}>
             <b>Queen Mary University of London</b></a>.
         </p>
-        <h4>Presentations</h4>
-        <ul className="list-disc">
-          <li className="list-disc">
-            <a href={CPPCON2024}><b>CppCon 2024 -
-               </b> Composing Ancient Mathematical Knowledge Into Powerful Bit-fiddling Techniques
-            </a>
-          </li>
-          <li className="list-disc">
-            <a href={CPPONSEA2024}><b>C++ On Sea 2024 -
-               </b> An Introduction to SWAR (SIMD Within A Register)
-            </a>
-          </li>
-          <li className="list-disc">
-            <a href={ADC2023}><b>ADC 2023 -
-               </b> An Engineer&apos;s Guide to Prototyping
-            </a>
-          </li>
-          <li className="list-disc">
-            <a href={ADC2021}><b>ADC 2021 - </b>An Introduction to Compiler Intrinsics</a>
-          </li>
+        <h3>Presentations</h3>
+        <ul className="">
+          <ConferenceItem
+            link={CPPCON2024}
+            conference="CppCon 2024"
+            text="(upcoming) Composing Ancient Mathematical Knowledge Into Powerful Bit-fiddling Techniques"
+          />
+          <ConferenceItem
+            link={CPPONSEA2024}
+            conference="Cpp On Sea 2024"
+            text="An Introduction to SWAR (SIMD Within A Register)"
+          />
+          <ConferenceItem
+            link={ADC2023}
+            conference="ADC 2023"
+            text="An Engineer's Guide to Prototyping"
+          />
+          <ConferenceItem
+            link={ADC2021}
+            conference="ADC 2021"
+            text="An Introduction to Compiler Intrinsics"
+          />
         </ul>
         <p>
-            I spoke at ADC 2021 about <a href={ADC2021}><b>using compiler
-            intrinsics in your code</b></a>.
+          I&apos;m a mentor in the ADC 2023 & 2024 Mentorship Program.
         </p>
         <p>
-            I&apos;m a mentor in the ADC 2023 & 2024 Mentorship Program.
-        </p>
-        <p>
-            <a href={MAIL}><u>Please feel free to hit me up!</u></a>
+          <a href={MAIL}><u>Please feel free to hit me up!</u></a>
         </p>
         <div className="flex flex-row space-x-4">
           <a href={LINKEDIN}>
