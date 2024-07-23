@@ -22,7 +22,7 @@ interface ConferenceItemProps {
 function ConferenceItem({ link, conference, text }: ConferenceItemProps) {
   return (
     <li className="text-left mb-4">
-      <a href={link}><b><u>{conference}</u> - </b> {text}</a>
+      <a href={link}><b className="text-blue-400"><u>{conference}</u> - </b> {text}</a>
     </li>
   );
 }
@@ -47,7 +47,7 @@ export default function Home() {
           I studied <b>Sound & Music Computing MSc</b> at <a href={QMUL}>
             <b>Queen Mary University of London</b></a>.
         </p>
-        <h3>Presentations</h3>
+        <h3 className="text-2xl">Presentations</h3>
         <ul className="">
           <ConferenceItem
             link={CPPCON2024}
