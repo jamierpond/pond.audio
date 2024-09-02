@@ -7,7 +7,7 @@ export default function Page() {
       className="w-3/4 p-4 "
       >
       <p
-      >My name is Jamie Pond and I'm camping at Camp Illuminaughty at 9:00 & E</p>
+      >My name is Jamie Pond and I&apos;m camping at Camp Illuminaughty at 9:00 & E</p>
       <hr />
       <p>If you could please return my phone to to me, I would be so grateful!</p>
     </div>
