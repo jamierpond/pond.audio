@@ -1,1 +1,1 @@
-export { GET } from "../source/route.ts";
+export { GET } from "../source/route";
