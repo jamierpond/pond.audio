@@ -2,7 +2,7 @@
 import { useState, useRef } from 'react';
 
 export default function VideoPage() {
-  const videoSource = "/rick.webm";
+  const videoSource = "/rick.mp4";
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
@@ -24,7 +24,7 @@ export default function VideoPage() {
             onClick={handlePlayVideo}
             className="px-6 py-3 bg-white hover:bg-gray-100 text-black rounded-lg font-medium text-lg transition-colors"
           >
-            Play Video
+            I Dare To Wander
           </button>
         </div>
       )}
