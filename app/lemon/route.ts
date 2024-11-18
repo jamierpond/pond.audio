@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
 
 export function GET() {
-  return NextResponse.json({ message: "Hello, Emily! You're on the internet!" });
+  return NextResponse.json({ message: "I am on a mac mini running ubuntu" });
 }
