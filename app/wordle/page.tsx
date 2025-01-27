@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import wordleWordJson from "./words.json";
-const CORRECT_WORD = "EMILY";
+const CORRECT_WORD = "DONUT";
 const words = wordleWordJson as string[];
 const WORD_LENGTH = 5;
 const MAX_ATTEMPTS = 6;
@@ -36,15 +36,6 @@ function Keyboard({ handleKeyPress, getKeyboardKeyColor }: { handleKeyPress: (ke
   );
 }
 
-
-//       {gameOver && (
-//         <button
-//           onClick={() => window.location.reload()}
-//           className="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded mt-4"
-//         >
-//           Play Again
-//         </button>
-//       )}
 
 export default function Page() {
   const [currentGuess, setCurrentGuess] = useState<string>("");
@@ -100,12 +91,6 @@ export default function Page() {
     return 'bg-gray-500';
   };
 
-//   useEffect(() => {
-//     if (!message) return;
-//     alert(message);
-//     setMessage("");
-//   }, [message]);
-
   const getKeyboardKeyColor = (key: string) => {
     if (!guesses.length) return 'bg-gray-400';
 
@@ -125,10 +110,6 @@ export default function Page() {
     }
     return maxColor;
   };
-
-  if (gameOver) {
-
-  }
 
   function titleOrMessage() {
     if (message) return message;
