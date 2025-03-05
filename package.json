@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google-cloud/bigtable": "^5.1.2",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
     "base64-js": "^1.5.1",

@@ -1,3 +1,4 @@
+import { Bigtable } from '@google-cloud/bigtable';
 
 const getIntensity = (count: number, baseColor = 'green') => {
   if (count === 0) return 'bg-gray-800';
@@ -7,10 +8,10 @@ const getIntensity = (count: number, baseColor = 'green') => {
   if (count <= 4) return `bg-${baseColor}-500`;
   if (count <= 5) return `bg-${baseColor}-400`;
   return 'bg-green-300';
-}
+};
 
 
-async function HabitHeatmap({ data }: { data: number[] }) {
+function HabitHeatmap({ data }: { data: number[] }) {
   const weeks = Math.ceil(365 / 7);
 
   return (
@@ -34,15 +35,52 @@ async function HabitHeatmap({ data }: { data: number[] }) {
   );
 }
 
-export default function Page() {
-  const yearsData = Array(365).fill(0).map(() => Math.floor(Math.random() ** 2 * 6))
-    // 10% chance make zero
-    .map((count) => Math.random() < 0.1 ? 0 : count);
+// Fetch data from Bigtable
+async function fetchDataFromBigtable() {
+  const bigtable = new Bigtable();
+  const instance = bigtable.instance('your-instance-id');
+  const table = instance.table('your-table-name');
 
+  const [rows] = await table.getRows();
+
+  // Determine schema dynamically (assuming each row has a 'date' and 'count' column)
+  let data: { date: string; count: number }[] = [];
+
+  rows.forEach(row => {
+    const date = row.id; // Assuming row keys are dates
+    const countCell = row.data['your-column-family']?.['your-column-name'];
+
+    if (countCell && countCell.length > 0) {
+      const count = parseInt(countCell[0].value, 10);
+      data.push({ date, count });
+    }
+  });
+
+  return data;
+}
+
+// Convert Bigtable data into heatmap format (365-day array)
+function processData(rawData: { date: string; count: number }[]) {
+  const data = Array(365).fill(0);
+
+  rawData.forEach(({ date, count }) => {
+    const dayOfYear = new Date(date).getDay(); // Convert date to day index
+    if (dayOfYear < 365) {
+      data[dayOfYear] = count;
+    }
+  });
+
+  return data;
+}
+
+export default async function Page() {
+
+  const rawData = await fetchDataFromBigtable();
+  const heatmapData = processData(rawData);
 
   return (
     <div className="p-4 max-w-screen-md mx-auto">
-      <HabitHeatmap data={yearsData} />
+      <HabitHeatmap data={heatmapData} />
     </div>
   );
 }
