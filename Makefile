@@ -6,7 +6,7 @@ PORT := 3000
 .PHONY: docker-prod docker-build docker-run docker-stop docker-clean docker-logs
 
 # Build and run the production Docker container
-docker-prod: docker-build docker-run
+docker-prod: docker-stop docker-build docker-run
 
 # Build the Docker image
 docker-build:
