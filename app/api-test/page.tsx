@@ -14,10 +14,11 @@ export default function ApiTest() {
   const [error, setError] = useState<string | null>(null)
   const [lastUpdate, setLastUpdate] = useState<string>('')
 
+  const endpoint = `${API_ENDPOINT}/api/time`
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_ENDPOINT}/api/time`, { cache: 'no-store' })
+        const response = await fetch(endpoint, { cache: 'no-store' })
         const json = await response.json()
         setData(json)
         setError(null)
@@ -44,7 +45,7 @@ export default function ApiTest() {
       margin: '0 auto'
     }}>
       <h1>API Test</h1>
-      <p>Polling endpoint: {API_ENDPOINT}</p>
+      <p>Polling endpoint: {endpoint}</p>
       <p>Last update: {lastUpdate}</p>
 
       {error && (
