@@ -76,7 +76,7 @@ export default function Page() {
 
       {/* Piano Roll Grid */}
       <div className="flex-1 border border-gray-600 mb-4 p-4">
-        <div className="text-sm mb-2">Piano Roll - Press 'i' for INSERT mode, 'v' for VISUAL, ESC for NORMAL</div>
+        <div className="text-sm mb-2">Piano Roll - Press &apos;i&apos; for INSERT mode, &apos;v&apos; for VISUAL, ESC for NORMAL</div>
         <div className="flex flex-col gap-px">
           {Array.from({ length: 12 }, (_, y) => (
             <div key={y} className="flex gap-px">
