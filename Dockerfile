@@ -16,6 +16,11 @@ RUN bun install --no-save --frozen-lockfile
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
+
+# Accept build args
+ARG NEXT_PUBLIC_API_ENDPOINT
+ENV NEXT_PUBLIC_API_ENDPOINT=$NEXT_PUBLIC_API_ENDPOINT
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 

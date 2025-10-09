@@ -1,15 +1,15 @@
 'use client'
 import { useEffect, useState } from 'react'
 
-const API_ENDPOINT: string = (() => {
-  const endpoint = process.env.NEXT_PUBLIC_API_ENDPOINT || process.env.API_ENDPOINT
-  if (!endpoint) {
-    throw new Error('API_ENDPOINT environment variable is not set. Required: NEXT_PUBLIC_API_ENDPOINT or API_ENDPOINT')
-  }
-  return endpoint
-})()
+export const dynamic = 'force-dynamic'
 
 export default function ApiTest() {
+  const API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT || process.env.API_ENDPOINT
+
+  if (!API_ENDPOINT) {
+    throw new Error('API_ENDPOINT environment variable is not set. Required: NEXT_PUBLIC_API_ENDPOINT or API_ENDPOINT')
+  }
+
   const [data, setData] = useState<any>(null)
   const [error, setError] = useState<string | null>(null)
   const [lastUpdate, setLastUpdate] = useState<string>('')
@@ -17,7 +17,7 @@ export default function ApiTest() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(API_ENDPOINT)
+        const response = await fetch(`${API_ENDPOINT}/api/time`, { cache: 'no-store' })
         const json = await response.json()
         setData(json)
         setError(null)
