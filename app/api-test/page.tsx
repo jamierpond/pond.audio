@@ -1,0 +1,76 @@
+'use client'
+import { useEffect, useState } from 'react'
+
+const API_ENDPOINT: string = (() => {
+  const endpoint = process.env.NEXT_PUBLIC_API_ENDPOINT || process.env.API_ENDPOINT
+  if (!endpoint) {
+    throw new Error('API_ENDPOINT environment variable is not set. Required: NEXT_PUBLIC_API_ENDPOINT or API_ENDPOINT')
+  }
+  return endpoint
+})()
+
+export default function ApiTest() {
+  const [data, setData] = useState<any>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [lastUpdate, setLastUpdate] = useState<string>('')
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(API_ENDPOINT)
+        const json = await response.json()
+        setData(json)
+        setError(null)
+        setLastUpdate(new Date().toLocaleTimeString())
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to fetch')
+      }
+    }
+
+    // Fetch immediately
+    fetchData()
+
+    // Then fetch every second
+    const interval = setInterval(fetchData, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div style={{
+      padding: '2rem',
+      fontFamily: 'monospace',
+      maxWidth: '800px',
+      margin: '0 auto'
+    }}>
+      <h1>API Test</h1>
+      <p>Polling endpoint: {API_ENDPOINT}</p>
+      <p>Last update: {lastUpdate}</p>
+
+      {error && (
+        <div style={{
+          padding: '1rem',
+          background: '#fee',
+          border: '1px solid #f00',
+          borderRadius: '4px',
+          marginTop: '1rem'
+        }}>
+          <strong>Error:</strong> {error}
+        </div>
+      )}
+
+      {data && (
+        <pre style={{
+          padding: '1rem',
+          background: '#f5f5f5',
+          color: '#000',
+          borderRadius: '4px',
+          overflow: 'auto',
+          marginTop: '1rem'
+        }}>
+          {JSON.stringify(data, null, 2)}
+        </pre>
+      )}
+    </div>
+  )
+}
