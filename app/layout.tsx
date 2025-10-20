@@ -11,8 +11,8 @@ const images = [{
 }];
 
 // todo fix css for text
-const title = 'Jamie Pond | Lead Audio Software Developer';
-const description = 'Lead Audio Software Developer at mayk';
+const title = 'Jamie Pond | Staff Software Engineer';
+const description = 'Staff Software Engineer at Tamber';
 
 export const metadata: Metadata = {
   title: title,

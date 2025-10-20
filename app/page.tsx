@@ -13,7 +13,7 @@ export default function Home() {
         <a href="mailto:jamie@pond.audio">jamie@pond.audio</a>
       </h3>
       <div className="flex flex-col text-center items-center justify-center p-8 space-y-8">
-        <p>I&apos;m Lead Audio Software Engineer at <a href="https://www.mayk.it"><b>mayk</b></a>.</p>
+        <p>I&apos;m Lead Audio Software Engineer at <a href="https://www.tamber.ai"><b>Tamber</b></a>.</p>
         <p>I studied <b>Sound & Music Computing MSc</b> at <a href="https://www.qmul.ac.uk"><b>Queen Mary University of London</b></a>.</p>
         <p>I spoke at ADC 2021 about <a href="https://www.youtube.com/watch?v=X8dPANPmC7E&ab_channel=JUCE"><b>using compiler intrinsics in your code</b></a>.</p>
         <p>I spoke at ADC 2023 about <a href="https://www.youtube.com/watch?v=1lEWl-MTA6k&ab_channel=ADC-AudioDeveloperConference"><b>mayk&apos;s approach to prototyping</b></a>.</p>

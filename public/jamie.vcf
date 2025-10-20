@@ -2,18 +2,17 @@ BEGIN:VCARD
 VERSION:3.0
 FN:Jamie Pond
 N:Pond;Jamie;;;
-ORG:mayk inc
+ORG:tamber inc
 TITLE:Lead Audio Software Engineer
 TEL;TYPE=USA,VOICE:(424) 413-1792
 TEL;TYPE=UK/WhatsApp,VOICE:+44 7824711084
 EMAIL;TYPE=Personal:jamie@pond.audio
-EMAIL;TYPE=Work:jamie@mayk.it
+EMAIL;TYPE=Work:jamie@tamber.it
 URLhttps://pond.audio
 URL;TYPE=GitHub:https://pond.audio/github
 URL;TYPE=LinkedIn:https://pond.audio/linkedin
 URL;TYPE=X:https://pond.audio/x
 URL;TYPE=Instagram:https://www.instagram.com/jamierpond
-URL;TYPE=mayk:https://mayk.it/@jamie
-URL;TYPE=covers.ai:https://covers.ai
+URL;TYPE=tamber:https://tamber.ai/@jamie
 END:VCARD
 
