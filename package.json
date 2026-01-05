@@ -2,6 +2,9 @@
   "name": "pond.audio",
   "version": "0.1.0",
   "private": true,
+  "pnpm": {
+    "onlyBuiltDependencies": ["sharp"]
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -16,7 +19,9 @@
     "currency-symbol-map": "^5.1.0",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
+    "framer-motion": "^12.24.0",
     "github-calendar": "^2.3.2",
+    "lucide-react": "^0.562.0",
     "next": "^14.0.4",
     "next-absolute-url": "^1.2.2",
     "pako": "^2.1.0",

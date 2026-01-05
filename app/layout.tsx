@@ -44,12 +44,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={jetbrainsMono.className}>
-        <div className="flex min-h-screen flex-col items-center justify-between mt-20">
-          <div className="flex flex-col items-center justify-center">
-            {children}
-          </div>
-        </div>
+      <body className={`${jetbrainsMono.className} bg-neutral-950`}>
+        {children}
       </body>
     </html>
   )
