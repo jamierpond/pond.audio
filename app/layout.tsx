@@ -3,7 +3,11 @@ import { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
 
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+})
 
 const images = [{
   url: '/pup400.jpg',

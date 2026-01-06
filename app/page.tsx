@@ -73,7 +73,7 @@ export default function Home() {
         initial="hidden"
         animate="show"
         variants={stagger}
-        className="relative z-10 min-h-[80vh] flex flex-col justify-center px-6 md:px-12 lg:px-24 py-24"
+        className="relative z-10 px-6 md:px-12 lg:px-24 pt-16 pb-20"
       >
         <div className="max-w-5xl">
           <motion.div variants={fadeUp} className="flex items-center gap-5 mb-8">
@@ -138,9 +138,9 @@ export default function Home() {
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
         variants={stagger}
-        className="relative z-10 px-6 md:px-12 lg:px-24 py-24 border-t border-neutral-900"
+        className="relative z-10 px-6 md:px-12 lg:px-24 py-16 border-t border-neutral-900"
       >
-        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-12 tracking-widest uppercase">
+        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase">
           Work
         </motion.h2>
 
@@ -187,9 +187,9 @@ export default function Home() {
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
         variants={stagger}
-        className="relative z-10 px-6 md:px-12 lg:px-24 py-24 border-t border-neutral-900"
+        className="relative z-10 px-6 md:px-12 lg:px-24 py-16 border-t border-neutral-900"
       >
-        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-12 tracking-widest uppercase">
+        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase">
           Speaking
         </motion.h2>
 
@@ -228,9 +228,9 @@ export default function Home() {
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
         variants={stagger}
-        className="relative z-10 px-6 md:px-12 lg:px-24 py-24 border-t border-neutral-900"
+        className="relative z-10 px-6 md:px-12 lg:px-24 py-16 border-t border-neutral-900"
       >
-        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-12 tracking-widest uppercase">
+        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase">
           Highlights
         </motion.h2>
 
@@ -262,9 +262,9 @@ export default function Home() {
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
         variants={stagger}
-        className="relative z-10 px-6 md:px-12 lg:px-24 py-24 border-t border-neutral-900"
+        className="relative z-10 px-6 md:px-12 lg:px-24 py-16 border-t border-neutral-900"
       >
-        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-12 tracking-widest uppercase">
+        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase">
           Activity
         </motion.h2>
 
