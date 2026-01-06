@@ -20,14 +20,12 @@ const WORK = [
     role: "Staff Software Engineer",
     description: "AI-first music creation. Building the audio engine and creator tools.",
     href: "https://tamber.music/",
-    current: true,
   },
   {
     title: "yapi",
     role: "Creator",
     description: "CLI-first API client for HTTP, gRPC, GraphQL, TCP. Open source.",
     href: "https://yapi.run/",
-    oss: true,
   },
   {
     title: "mayk.it",
@@ -47,7 +45,7 @@ const TALKS = [
 const HIGHLIGHTS = [
   { label: "Drayk It", desc: "Viral AI Drake generator", href: "https://www.vibe.com/news/tech/drake-song-drayk-it-ai-software-1234730792/", tag: "Viral" },
   { label: "Covers.ai", desc: "Social music experiences", href: "https://covers.ai/", tag: "Acquired" },
-  { label: "Discord game", desc: "Acquired by Playroom Studio", href: "https://www.linkedin.com/company/mayk-it/", tag: "Acquired" },
+  { label: "Discord game", desc: "Acquired by Playroom Studio", href: "https://www.linkedin.com/feed/update/urn:li:activity:7409399286628712448/", tag: "Acquired" },
 ];
 
 const SOCIALS = [
@@ -151,18 +149,8 @@ export default function Home() {
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="text-2xl font-bold mb-1 flex items-center gap-2">
+                  <h3 className="text-2xl font-bold mb-1">
                     {item.title}
-                    {item.current && (
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-green-900/50 text-green-400 border border-green-800">
-                        now
-                      </span>
-                    )}
-                    {item.oss && (
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-900/50 text-blue-400 border border-blue-800">
-                        oss
-                      </span>
-                    )}
                   </h3>
                   <p className="text-sm text-neutral-500">{item.role}</p>
                 </div>
