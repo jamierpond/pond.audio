@@ -124,9 +124,9 @@ export default function Home() {
               href="https://yapi.run"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-1 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl hover:from-indigo-500 hover:to-purple-500 transition-all"
+              className="ml-1 px-6 py-3 bg-gradient-to-r from-orange-600 to-amber-600 text-white font-bold rounded-xl hover:from-orange-500 hover:to-amber-500 transition-all"
             >
-              yapi.run →
+              🐑 yapi.run →
             </a>
           </motion.div>
         </div>
