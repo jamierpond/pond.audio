@@ -20,12 +20,16 @@ const WORK = [
     role: "Staff Software Engineer",
     description: "AI-first music creation. Building the audio engine and creator tools.",
     href: "https://tamber.music/",
+    tag: "now",
+    tagColor: "green",
   },
   {
     title: "yapi",
     role: "Creator",
     description: "CLI-first API client for HTTP, gRPC, GraphQL, TCP. Open source.",
     href: "https://yapi.run/",
+    tag: "oss",
+    tagColor: "blue",
   },
   {
     title: "mayk.it",
@@ -149,8 +153,17 @@ export default function Home() {
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="text-2xl font-bold mb-1">
+                  <h3 className="text-2xl font-bold mb-1 flex items-center gap-3">
                     {item.title}
+                    {item.tag && (
+                      <span className={`text-[10px] font-mono px-2 py-0.5 ${
+                        item.tagColor === "green"
+                          ? "bg-green-950 text-green-400 border-green-800"
+                          : "bg-blue-950 text-blue-400 border-blue-800"
+                      } border`}>
+                        {item.tag}
+                      </span>
+                    )}
                   </h3>
                   <p className="text-sm text-neutral-500">{item.role}</p>
                 </div>
