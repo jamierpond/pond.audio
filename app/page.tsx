@@ -40,10 +40,10 @@ const WORK = [
 ];
 
 const TALKS = [
-  { conf: "CppCon 2024", title: "Associative Iteration", href: "https://www.youtube.com/watch?v=7n1CVURp0DY" },
-  { conf: "C++ on Sea 2024", title: "Intro to SWAR", href: "https://www.youtube.com/watch?v=4h7UZnWN67Y" },
-  { conf: "ADC 2023", title: "Prototyping at Mayk", href: "https://www.youtube.com/watch?v=1lEWl-MTA6k" },
-  { conf: "ADC 2021", title: "Compiler Intrinsics", href: "https://www.youtube.com/watch?v=X8dPANPmC7E" },
+  { conf: "CppCon 2024", title: "Associative Iteration", videoId: "7n1CVURp0DY" },
+  { conf: "C++ on Sea 2024", title: "Intro to SWAR", videoId: "4h7UZnWN67Y" },
+  { conf: "ADC 2023", title: "Prototyping at Mayk", videoId: "1lEWl-MTA6k" },
+  { conf: "ADC 2021", title: "Compiler Intrinsics", videoId: "X8dPANPmC7E" },
 ];
 
 const HIGHLIGHTS = [
@@ -73,35 +73,38 @@ export default function Home() {
         initial="hidden"
         animate="show"
         variants={stagger}
-        className="relative z-10 min-h-[70vh] flex flex-col justify-end px-6 md:px-12 lg:px-24 pb-16 pt-32"
+        className="relative z-10 min-h-[80vh] flex flex-col justify-center px-6 md:px-12 lg:px-24 py-24"
       >
         <div className="max-w-5xl">
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-8">
-            <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-neutral-800 shrink-0">
+          <motion.div variants={fadeUp} className="flex items-center gap-5 mb-8">
+            <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden border-2 border-neutral-800 shrink-0">
               <Image src="/pup400.jpg" alt="Jamie Pond" fill className="object-cover" />
             </div>
-            <div className="flex gap-2">
-              <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-neutral-900 text-neutral-400 border border-neutral-800">
-                EB-1A
-              </span>
-              <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-neutral-900 text-neutral-400 border border-neutral-800">
-                Los Angeles
-              </span>
+            <div className="flex flex-col gap-2">
+              <div className="flex flex-wrap gap-2">
+                <span className="text-[10px] font-mono px-3 py-1 bg-gradient-to-r from-amber-900/50 to-orange-900/50 text-amber-300 border border-amber-800/50">
+                  EB-1A
+                </span>
+                <span className="text-[10px] font-mono px-3 py-1 bg-neutral-900 text-neutral-400 border border-neutral-800">
+                  Los Angeles
+                </span>
+              </div>
+              <p className="text-sm text-neutral-500">Staff Software Engineer</p>
             </div>
           </motion.div>
 
           <motion.h1
             variants={fadeUp}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 sm:mb-6"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
           >
             Jamie Pond
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="text-lg sm:text-xl md:text-2xl text-neutral-400 max-w-2xl mb-8"
+            className="text-xl md:text-2xl text-neutral-400 max-w-2xl mb-10 leading-relaxed"
           >
-            Staff engineer building audio software, AI music tools, and developer infrastructure.
+            Building audio software, AI music tools, and developer infrastructure.
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3">
@@ -121,7 +124,7 @@ export default function Home() {
               href="https://yapi.run"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-1 px-5 py-3 bg-white text-black font-bold rounded-xl hover:bg-neutral-200 transition-colors"
+              className="ml-1 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl hover:from-indigo-500 hover:to-purple-500 transition-all"
             >
               yapi.run →
             </a>
@@ -190,21 +193,30 @@ export default function Home() {
           Speaking
         </motion.h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 gap-6">
           {TALKS.map((talk) => (
             <motion.a
-              key={talk.href}
+              key={talk.videoId}
               variants={fadeUp}
-              href={talk.href}
+              href={`https://www.youtube.com/watch?v=${talk.videoId}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block p-6 bg-neutral-900/30 border border-neutral-800 rounded-xl hover:bg-neutral-900 hover:border-neutral-700 transition-all"
+              className="group block bg-neutral-900/30 border border-neutral-800 rounded-2xl overflow-hidden hover:bg-neutral-900 hover:border-neutral-700 transition-all"
             >
-              <p className="text-xs font-mono text-neutral-500 mb-2">{talk.conf}</p>
-              <p className="font-semibold group-hover:text-white transition-colors flex items-center gap-2">
-                {talk.title}
-                <ExternalLink size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-              </p>
+              <div className="relative aspect-video">
+                <Image
+                  src={`https://img.youtube.com/vi/${talk.videoId}/hqdefault.jpg`}
+                  alt={talk.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-5">
+                <p className="text-xs font-mono text-neutral-500 mb-1">{talk.conf}</p>
+                <p className="font-semibold text-lg group-hover:text-white transition-colors">
+                  {talk.title}
+                </p>
+              </div>
             </motion.a>
           ))}
         </div>
