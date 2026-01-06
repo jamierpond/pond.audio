@@ -37,7 +37,7 @@ export const HOME_HIGHLIGHTS: HomeHighlight[] = [
   {
     title: "Drayk It",
     description: "Viral AI Drake parody generator - UGC remix culture prototype.",
-    href: "https://www.theverge.com/2023/4/18/23687783/ai-drake-song-heart-on-my-sleeve-ghost-writer",
+    href: "https://www.vibe.com/news/tech/drake-song-drayk-it-ai-software-1234730792/",
     tag: "Viral",
   },
   {
