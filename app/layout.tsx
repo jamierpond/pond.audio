@@ -10,9 +10,8 @@ const images = [{
   alt: 'crazy noot',
 }];
 
-// todo fix css for text
 const title = 'Jamie Pond | Staff Software Engineer';
-const description = 'Staff Software Engineer at Tamber';
+const description = 'Staff Software Engineer at Tamber. EB-1A recipient. Creator of yapi.run. Previously Mayk It.';
 
 export const metadata: Metadata = {
   title: title,

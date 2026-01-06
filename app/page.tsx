@@ -14,6 +14,8 @@ import {
   Play,
 } from "lucide-react";
 import GithubCalendar from "./GithubCalendar";
+import { HighlightsList } from "./HighlightsList";
+import { HOME_HIGHLIGHTS } from "./homeHighlights";
 
 const container = {
   hidden: { opacity: 0 },
@@ -71,35 +73,39 @@ export default function Home() {
               Jamie Pond
             </h1>
             <p className="text-neutral-400 text-lg">Staff Software Engineer</p>
-            <p className="text-neutral-500">London, UK</p>
+            <p className="text-neutral-500 mb-3">Los Angeles, CA</p>
+            <span className="text-[10px] font-mono px-2 py-1 rounded-full bg-neutral-800 text-neutral-400 border border-neutral-700">
+              EB-1A
+            </span>
           </div>
         </motion.div>
 
         {/* 2. Tamber / Mayk Hype Card */}
         <motion.div
           variants={item}
-          className="md:col-span-2 bg-gradient-to-br from-indigo-900 to-purple-900 rounded-3xl p-8 border border-white/10 flex flex-col justify-center relative overflow-hidden"
+          className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-indigo-900 to-purple-900 rounded-3xl p-8 border border-white/10 flex flex-col relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 p-4 opacity-20">
             <Zap size={120} />
           </div>
-          <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
+          <h2 className="text-2xl font-bold mb-2">
             <a
-              href="https://www.tamber.ai"
+              href="https://tamber.music/"
               className="bg-white/20 p-1 px-2 rounded hover:bg-white/30 transition-colors"
             >
               Tamber
             </a>
-            <span className="text-indigo-200 font-normal">formerly mayk.it</span>
           </h2>
-          <p className="text-indigo-100 mb-4 max-w-md">
-            Leading audio software engineering for the next generation of
-            AI-generated music.
+          <p className="text-indigo-100 mb-2 max-w-md">
+            Building AI-first music creation tools and social music experiments.
           </p>
-          <div className="flex gap-4 text-sm font-mono text-indigo-300">
-            <span>Series A</span>
-            <span>AI Audio</span>
-            <span>Viral Tech</span>
+
+          <HighlightsList items={HOME_HIGHLIGHTS} />
+
+          <div className="flex gap-4 mt-4 text-sm font-mono text-indigo-300">
+            <span>AI music</span>
+            <span>UGC tools</span>
+            <span>Social play</span>
           </div>
         </motion.div>
 
