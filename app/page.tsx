@@ -47,9 +47,9 @@ const TALKS = [
 ];
 
 const HIGHLIGHTS = [
-  { label: "Drayk It", desc: "Viral AI Drake generator", href: "https://www.vibe.com/news/tech/drake-song-drayk-it-ai-software-1234730792/", tag: "Viral" },
-  { label: "Covers.ai", desc: "Social music experiences", href: "https://covers.ai/", tag: "Acquired" },
-  { label: "Discord game", desc: "Acquired by Playroom Studio", href: "https://www.linkedin.com/feed/update/urn:li:activity:7409399286628712448/", tag: "Acquired" },
+  { label: "Drayk It", desc: "Viral AI Drake generator", href: "https://www.vibe.com/news/tech/drake-song-drayk-it-ai-software-1234730792/", tag: "Viral", tagColor: "blue" },
+  { label: "Covers.ai", desc: "Social music experiences", href: "https://covers.ai/", tag: "Acquired", tagColor: "green" },
+  { label: "Discord game", desc: "Acquired by Playroom Studio", href: "https://www.linkedin.com/feed/update/urn:li:activity:7409399286628712448/", tag: "Acquired", tagColor: "green" },
 ];
 
 const SOCIALS = [
@@ -248,7 +248,13 @@ export default function Home() {
                 <p className="font-semibold group-hover:text-white transition-colors">{item.label}</p>
                 <p className="text-sm text-neutral-500">{item.desc}</p>
               </div>
-              <span className="text-[10px] font-mono px-2 py-1 rounded-full bg-neutral-800 text-neutral-400 border border-neutral-700 shrink-0">
+              <span className={`text-[10px] font-mono px-2 py-1 shrink-0 ${
+                item.tagColor === "blue"
+                  ? "bg-blue-950 text-blue-400 border border-blue-800"
+                  : item.tagColor === "green"
+                  ? "bg-green-950 text-green-400 border border-green-800"
+                  : "bg-neutral-800 text-neutral-400 border border-neutral-700"
+              }`}>
                 {item.tag}
               </span>
             </motion.a>
