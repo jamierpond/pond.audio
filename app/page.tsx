@@ -44,6 +44,12 @@ const TALKS = [
   { conf: "ADC 2021", title: "Compiler Intrinsics", href: "https://www.youtube.com/watch?v=X8dPANPmC7E" },
 ];
 
+const HIGHLIGHTS = [
+  { label: "Drayk It", desc: "Viral AI Drake generator", href: "https://www.vibe.com/news/tech/drake-song-drayk-it-ai-software-1234730792/", tag: "Viral" },
+  { label: "Covers.ai", desc: "Social music experiences", href: "https://covers.ai/", tag: "Acquired" },
+  { label: "Discord game", desc: "Acquired by Playroom Studio", href: "https://www.linkedin.com/company/mayk-it/", tag: "Acquired" },
+];
+
 const SOCIALS = [
   { href: "https://github.com/jamierpond", icon: Github, label: "GitHub" },
   { href: "https://x.com/jamiepondx", icon: Twitter, label: "X" },
@@ -198,6 +204,40 @@ export default function Home() {
                 {talk.title}
                 <ExternalLink size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
               </p>
+            </motion.a>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* Highlights / Social Proof */}
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={stagger}
+        className="relative z-10 px-6 md:px-12 lg:px-24 py-24 border-t border-neutral-900"
+      >
+        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-12 tracking-widest uppercase">
+          Highlights
+        </motion.h2>
+
+        <div className="flex flex-wrap gap-4">
+          {HIGHLIGHTS.map((item) => (
+            <motion.a
+              key={item.label}
+              variants={fadeUp}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-4 px-5 py-4 bg-neutral-900/30 border border-neutral-800 rounded-xl hover:bg-neutral-900 hover:border-neutral-700 transition-all"
+            >
+              <div>
+                <p className="font-semibold group-hover:text-white transition-colors">{item.label}</p>
+                <p className="text-sm text-neutral-500">{item.desc}</p>
+              </div>
+              <span className="text-[10px] font-mono px-2 py-1 rounded-full bg-neutral-800 text-neutral-400 border border-neutral-700 shrink-0">
+                {item.tag}
+              </span>
             </motion.a>
           ))}
         </div>
