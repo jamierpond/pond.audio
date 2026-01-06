@@ -23,7 +23,7 @@ export const HOME_HIGHLIGHTS: HomeHighlight[] = [
     tag: "OSS",
   },
   {
-    title: "Mayk It",
+    title: "mayk.it",
     description: "Creator tools and workflows for remix and UGC music.",
     href: "https://www.mayk.it/",
     tag: "Previous",

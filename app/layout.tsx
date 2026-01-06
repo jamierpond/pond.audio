@@ -11,7 +11,7 @@ const images = [{
 }];
 
 const title = 'Jamie Pond | Staff Software Engineer';
-const description = 'Staff Software Engineer at Tamber. EB-1A recipient. Creator of yapi.run. Previously Mayk It.';
+const description = 'Staff Software Engineer at Tamber. EB-1A recipient. Creator of yapi.run. Previously mayk.it.';
 
 export const metadata: Metadata = {
   title: title,
