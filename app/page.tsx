@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, Mail, ExternalLink, ArrowUpRight } from "lucide-react";
@@ -97,27 +96,27 @@ export default function Home() {
             Staff engineer building audio software, AI music tools, and developer infrastructure.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
-            <div className="flex gap-3">
-              {SOCIALS.map(({ href, icon: Icon, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-neutral-900 border border-neutral-800 rounded-xl hover:bg-neutral-800 hover:border-neutral-700 transition-all"
-                  aria-label={label}
-                >
-                  <Icon size={20} className="text-neutral-400" />
-                </a>
-              ))}
-            </div>
-            <Link
-              href="/jamie.vcf"
-              className="px-5 py-3 bg-white text-black font-bold rounded-xl hover:bg-neutral-200 transition-colors text-center"
+          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3">
+            {SOCIALS.map(({ href, icon: Icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-neutral-900 border border-neutral-800 rounded-xl hover:bg-neutral-800 hover:border-neutral-700 transition-all"
+                aria-label={label}
+              >
+                <Icon size={20} className="text-neutral-400" />
+              </a>
+            ))}
+            <a
+              href="https://yapi.run"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-1 px-5 py-3 bg-white text-black font-bold rounded-xl hover:bg-neutral-200 transition-colors"
             >
-              Add Contact
-            </Link>
+              yapi.run →
+            </a>
           </motion.div>
         </div>
       </motion.section>
