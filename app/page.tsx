@@ -34,7 +34,7 @@ const WORK = [
   {
     title: "mayk.it",
     role: "Lead Audio Engineer",
-    description: "UGC music tools. Drayk It went viral. Discord game acquired.",
+    description: "UGC music tools. Drayk It went viral. Covers.ai and Discord game both acquired.",
     href: "https://www.mayk.it/",
   },
 ];
