@@ -156,8 +156,8 @@ export default function Home() {
               rel="noopener noreferrer"
               className="block hover:bg-neutral-800 p-2 -mx-2 rounded transition-colors"
             >
-              <p className="font-bold text-sm">CppCon</p>
-              <p className="text-xs text-neutral-500">Audio in C++</p>
+              <p className="font-bold text-sm">CppCon 2024</p>
+              <p className="text-xs text-neutral-500">Associative Iteration</p>
             </a>
             <a
               href="https://www.youtube.com/watch?v=4h7UZnWN67Y"
@@ -165,8 +165,8 @@ export default function Home() {
               rel="noopener noreferrer"
               className="block hover:bg-neutral-800 p-2 -mx-2 rounded transition-colors"
             >
-              <p className="font-bold text-sm">C++ on Sea</p>
-              <p className="text-xs text-neutral-500">Audio in C++</p>
+              <p className="font-bold text-sm">C++ on Sea 2024</p>
+              <p className="text-xs text-neutral-500">Intro to SWAR</p>
             </a>
             <a
               href="https://www.youtube.com/watch?v=X8dPANPmC7E"
