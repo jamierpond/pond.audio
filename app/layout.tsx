@@ -3,16 +3,19 @@ import { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
 
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+})
 
 const images = [{
   url: '/pup400.jpg',
   alt: 'crazy noot',
 }];
 
-// todo fix css for text
 const title = 'Jamie Pond | Staff Software Engineer';
-const description = 'Staff Software Engineer at Tamber';
+const description = 'Staff Software Engineer at Tamber. EB-1A recipient. Creator of yapi.run. Previously mayk.it.';
 
 export const metadata: Metadata = {
   title: title,
@@ -44,12 +47,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={jetbrainsMono.className}>
-        <div className="flex min-h-screen flex-col items-center justify-between mt-20">
-          <div className="flex flex-col items-center justify-center">
-            {children}
-          </div>
-        </div>
+      <body className={`${jetbrainsMono.className} bg-neutral-950`}>
+        {children}
       </body>
     </html>
   )

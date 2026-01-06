@@ -12,14 +12,9 @@ export async function GET(request: NextRequest) {
   let currency = split[5];
 
   const symbol = getSymbolFromCurrency(currency);
-  if (symbol === undefined) { // let's try and guess the user's currency!
-    const country = request.geo?.country || "";
-    currency = countryToCurrency[country];
-    const sym = getSymbolFromCurrency(currency);
-    if (!sym) { // ok we don't know the currency :(
-      // throw Error("we can't figure out the currency, please tell us!");
-      currency = "usd";
-    }
+  if (symbol === undefined) {
+    // geo detection removed in Next.js 15+, fallback to USD
+    currency = "usd";
   }
 
   console.log(currency);
