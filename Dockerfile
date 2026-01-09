@@ -1,54 +1,33 @@
-# -----------------------------------------------------------------------------
-# This Dockerfile is specifically configured for projects using Bun
-# For npm/pnpm or yarn, refer to a different template
-# -----------------------------------------------------------------------------
-
-# Use Bun's official image
-FROM oven/bun:1 AS base
-
+FROM node:20-alpine AS base
 WORKDIR /app
 
-# Install dependencies with bun
-FROM base AS deps
-COPY package.json bun.lock* ./
-RUN bun install --no-save --frozen-lockfile
+# Install pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Rebuild the source code only when needed
+# Install dependencies
+FROM base AS deps
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
+
+# Build
 FROM base AS builder
 WORKDIR /app
-
-# Accept build args
-ARG NEXT_PUBLIC_API_ENDPOINT
-ENV NEXT_PUBLIC_API_ENDPOINT=$NEXT_PUBLIC_API_ENDPOINT
-
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+RUN pnpm build
 
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry during the build.
-# ENV NEXT_TELEMETRY_DISABLED=1
-
-RUN bun run build
-
-# Production image, copy all the files and run next
+# Production
 FROM base AS runner
 WORKDIR /app
-
-# Uncomment the following line in case you want to disable telemetry during runtime.
-# ENV NEXT_TELEMETRY_DISABLED=1
 
 ENV NODE_ENV=production \
     PORT=3000 \
     HOSTNAME="0.0.0.0"
 
-RUN groupadd --system --gid 1001 nodejs && \
-    useradd --system --uid 1001 --gid nodejs nextjs
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 -G nodejs nextjs
 
 COPY --from=builder /app/public ./public
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
@@ -56,4 +35,4 @@ USER nextjs
 
 EXPOSE 3000
 
-CMD ["bun", "./server.js"]
+CMD ["node", "server.js"]
