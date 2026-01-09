@@ -2,8 +2,12 @@
 
 import { useState } from "react";
 
-const PING_URL = process.env.NEXT_PUBLIC_PING_SERVICE_URL || "http://localhost:8001";
-const PONG_URL = process.env.NEXT_PUBLIC_PONG_SERVICE_URL || "http://localhost:8002";
+const PING_URL = process.env.NEXT_PUBLIC_PING_SERVICE_URL;
+const PONG_URL = process.env.NEXT_PUBLIC_PONG_SERVICE_URL;
+
+if (!PING_URL || !PONG_URL) {
+  throw new Error("Missing required env vars: NEXT_PUBLIC_PING_SERVICE_URL, NEXT_PUBLIC_PONG_SERVICE_URL");
+}
 
 type ServiceResponse = {
   service: string;
