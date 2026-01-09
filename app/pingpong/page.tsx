@@ -6,6 +6,7 @@ const PING_URL = process.env.NEXT_PUBLIC_PING_SERVICE_URL;
 const PONG_URL = process.env.NEXT_PUBLIC_PONG_SERVICE_URL;
 
 if (!PING_URL || !PONG_URL) {
+  console.log("whole env:", process.env);
   throw new Error("Missing required env vars: NEXT_PUBLIC_PING_SERVICE_URL, NEXT_PUBLIC_PONG_SERVICE_URL");
 }
 
