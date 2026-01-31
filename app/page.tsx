@@ -297,6 +297,9 @@ export default function Home() {
             ))}
           </div>
         </div>
+        <p className="text-center text-xs text-neutral-700 mt-6">
+          🦞 This footer was added by <a href="https://openclaw.ai" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition-colors">OpenClaw</a>
+        </p>
       </footer>
     </main>
   );
