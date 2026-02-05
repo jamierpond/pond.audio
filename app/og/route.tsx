@@ -1,8 +1,16 @@
 import { ImageResponse } from 'next/og';
+import fs from 'fs/promises';
+import path from 'path';
 
-export const runtime = 'edge';
+async function loadFont() {
+  return fs.readFile(
+    path.join(process.cwd(), 'public', 'fonts', 'JetBrains_Mono', 'static', 'JetBrainsMono-Bold.ttf')
+  );
+}
 
 export async function GET() {
+  const fontData = await loadFont();
+
   return new ImageResponse(
     (
       <div
@@ -15,7 +23,7 @@ export async function GET() {
           padding: '80px',
           backgroundColor: '#0a0a0a',
           color: '#ffffff',
-          fontFamily: 'monospace',
+          fontFamily: 'JetBrains Mono',
         }}
       >
         <div
@@ -95,6 +103,14 @@ export async function GET() {
     {
       width: 1200,
       height: 630,
+      fonts: [
+        {
+          name: 'JetBrains Mono',
+          data: fontData,
+          style: 'normal',
+          weight: 700,
+        },
+      ],
     }
   );
 }
