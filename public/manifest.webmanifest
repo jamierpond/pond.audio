@@ -1,0 +1,16 @@
+{
+  "name": "Jamie Pond - Staff Software Engineer",
+  "short_name": "Jamie Pond",
+  "description": "Staff Software Engineer specializing in audio software, AI music tools, and developer infrastructure.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/pup400.jpg",
+      "sizes": "400x400",
+      "type": "image/jpeg"
+    }
+  ]
+}

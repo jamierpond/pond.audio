@@ -9,36 +9,190 @@ const jetbrainsMono = JetBrains_Mono({
   fallback: ['ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
 })
 
-const images = [{
-  url: '/pup400.jpg',
-  alt: 'crazy noot',
+const title = 'Jamie Pond | Staff Software Engineer - Audio, AI & Developer Tools';
+const description =
+  'Jamie Pond is a Staff Software Engineer in Los Angeles specializing in audio software, AI music tools, and developer infrastructure. EB-1A visa recipient. Speaker at CppCon, ADC, and C++ on Sea. Creator of yapi.run. Previously Lead Audio Engineer at mayk.it.';
+
+const ogImages = [{
+  url: '/og',
+  width: 1200,
+  height: 630,
+  alt: 'Jamie Pond - Staff Software Engineer',
+  type: 'image/png',
 }];
 
-const title = 'Jamie Pond | Staff Software Engineer';
-const description = 'Staff Software Engineer at Tamber. EB-1A recipient. Creator of yapi.run. Previously mayk.it.';
-
 export const metadata: Metadata = {
-  title: title,
-  description: description,
-  metadataBase: new URL("https://pond.audio"),
+  metadataBase: new URL('https://pond.audio'),
+  title: {
+    default: title,
+    template: '%s | Jamie Pond',
+  },
+  description,
+  keywords: [
+    'Jamie Pond',
+    'Staff Software Engineer',
+    'audio software engineer',
+    'AI music tools',
+    'C++ developer',
+    'Los Angeles software engineer',
+    'EB-1A',
+    'CppCon speaker',
+    'yapi',
+    'mayk.it',
+    'Tamber',
+    'audio DSP',
+    'developer tools',
+    'SWAR',
+    'compiler intrinsics',
+  ],
+  authors: [{ name: 'Jamie Pond', url: 'https://pond.audio' }],
+  creator: 'Jamie Pond',
+  publisher: 'Jamie Pond',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    siteName: 'Jamie Pond | Lead Audio Software Developer',
+    title,
+    description,
+    siteName: 'Jamie Pond',
     type: 'website',
-    locale: 'en_IE',
+    locale: 'en_US',
     url: 'https://pond.audio',
-    images: images,
+    images: ogImages,
   },
   twitter: {
-    title: title,
-    description: description,
-    images: images,
-    card: 'summary',
-    site: "https://pond.audio",
-    siteId: "jamiepondx",
-    creator: "@jamiepondx",
-    creatorId: "jamiepondx",
+    title,
+    description,
+    images: ogImages,
+    card: 'summary_large_image',
+    site: '@jamiepondx',
+    creator: '@jamiepondx',
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {},
+  category: 'technology',
 }
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Jamie Pond',
+  url: 'https://pond.audio',
+  image: 'https://pond.audio/pup400.jpg',
+  jobTitle: 'Staff Software Engineer',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Tamber',
+    url: 'https://tamber.music/',
+  },
+  sameAs: [
+    'https://github.com/jamierpond',
+    'https://x.com/jamiepondx',
+    'https://www.linkedin.com/in/jamierpond',
+  ],
+  knowsAbout: [
+    'Audio Software Engineering',
+    'C++',
+    'AI Music Tools',
+    'Digital Signal Processing',
+    'Developer Tools',
+    'SIMD',
+    'Compiler Intrinsics',
+  ],
+  alumniOf: [],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Los Angeles',
+    addressRegion: 'CA',
+    addressCountry: 'US',
+  },
+  email: 'jamie@pond.audio',
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Jamie Pond',
+  url: 'https://pond.audio',
+  description,
+  author: {
+    '@type': 'Person',
+    name: 'Jamie Pond',
+  },
+};
+
+const profilePageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Jamie Pond',
+    url: 'https://pond.audio',
+    image: 'https://pond.audio/pup400.jpg',
+    jobTitle: 'Staff Software Engineer',
+    description: 'Staff Software Engineer specializing in audio software, AI music tools, and developer infrastructure.',
+  },
+  dateCreated: '2023-01-01T00:00:00+00:00',
+  dateModified: new Date().toISOString(),
+};
+
+const speakingJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Conference Talks by Jamie Pond',
+  itemListElement: [
+    {
+      '@type': 'VideoObject',
+      position: 1,
+      name: 'Associative Iteration - CppCon 2024',
+      description: 'Jamie Pond presents on Associative Iteration at CppCon 2024.',
+      thumbnailUrl: 'https://img.youtube.com/vi/7n1CVURp0DY/hqdefault.jpg',
+      uploadDate: '2024-01-01T00:00:00+00:00',
+      contentUrl: 'https://www.youtube.com/watch?v=7n1CVURp0DY',
+      embedUrl: 'https://www.youtube.com/embed/7n1CVURp0DY',
+    },
+    {
+      '@type': 'VideoObject',
+      position: 2,
+      name: 'Intro to SWAR - C++ on Sea 2024',
+      description: 'Jamie Pond introduces SWAR (SIMD Within A Register) techniques at C++ on Sea 2024.',
+      thumbnailUrl: 'https://img.youtube.com/vi/4h7UZnWN67Y/hqdefault.jpg',
+      uploadDate: '2024-01-01T00:00:00+00:00',
+      contentUrl: 'https://www.youtube.com/watch?v=4h7UZnWN67Y',
+      embedUrl: 'https://www.youtube.com/embed/4h7UZnWN67Y',
+    },
+    {
+      '@type': 'VideoObject',
+      position: 3,
+      name: 'Prototyping at Mayk - ADC 2023',
+      description: 'Jamie Pond discusses rapid prototyping approaches at the Audio Developer Conference 2023.',
+      thumbnailUrl: 'https://img.youtube.com/vi/1lEWl-MTA6k/hqdefault.jpg',
+      uploadDate: '2023-01-01T00:00:00+00:00',
+      contentUrl: 'https://www.youtube.com/watch?v=1lEWl-MTA6k',
+      embedUrl: 'https://www.youtube.com/embed/1lEWl-MTA6k',
+    },
+    {
+      '@type': 'VideoObject',
+      position: 4,
+      name: 'Compiler Intrinsics - ADC 2021',
+      description: 'Jamie Pond covers compiler intrinsics for audio development at ADC 2021.',
+      thumbnailUrl: 'https://img.youtube.com/vi/X8dPANPmC7E/hqdefault.jpg',
+      uploadDate: '2021-01-01T00:00:00+00:00',
+      contentUrl: 'https://www.youtube.com/watch?v=X8dPANPmC7E',
+      embedUrl: 'https://www.youtube.com/embed/X8dPANPmC7E',
+    },
+  ],
+};
 
 export default function RootLayout({
   children,
@@ -47,10 +201,30 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/pup400.jpg" type="image/jpeg" sizes="400x400" />
+        <link rel="apple-touch-icon" href="/pup400.jpg" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(speakingJsonLd) }}
+        />
+      </head>
       <body className={`${jetbrainsMono.className} bg-neutral-950`}>
         {children}
       </body>
     </html>
   )
 }
-

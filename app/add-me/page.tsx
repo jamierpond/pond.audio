@@ -14,7 +14,6 @@ export default function Page() {
       <a href="https://pond.audio/linkedin"><u>LinkedIn</u></a>
       <a href="https://pond.audio/x"><u>X</u></a>
       <a href="https://www.instagram.com/jamierpond"><u>Instagram</u></a>
-      <a href="https://mayk.it/@jamie"><u>mayk</u></a>
     </div>
   );
 }
