@@ -15,7 +15,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "knip": "knip"
+    "knip": "knip",
+    "ci:fix": "knip --fix && eslint --fix . && prettier --write ."
   },
   "dependencies": {
     "@next/third-parties": "^16.1.6",
