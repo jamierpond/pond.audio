@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
     .toFormat('png')
     .toBuffer();
 
-  return new NextResponse(pngBuffer, {
+  return new NextResponse(new Uint8Array(pngBuffer), {
     headers: {
       'Content-Type': 'image/png',
       'Cache-Control': 'public, max-age=31536000, immutable',
