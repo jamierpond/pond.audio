@@ -307,7 +307,7 @@ export default function Home() {
           variants={fadeUp}
           className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase"
         >
-          Speaking
+          Conference Talks
         </motion.h2>
 
         <div className="grid sm:grid-cols-2 gap-6">
@@ -353,7 +353,7 @@ export default function Home() {
           variants={fadeUp}
           className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase"
         >
-          Activity
+          Open Source Activity
         </motion.h2>
 
         <motion.div variants={fadeUp} className="overflow-x-auto">
