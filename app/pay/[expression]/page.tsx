@@ -5,7 +5,7 @@ const isDev = process.env.NODE_ENV === "development";
 const origin = isDev ? "http://localhost:3000" : "https://pond.audio";
 
 function numberWithCommas(x: number): string {
-    return x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function parseMoneyExpression(expression: string) {
@@ -41,7 +41,14 @@ function isNumberValid(n: number) {
   return n !== undefined && !isNaN(n);
 }
 
-function getDescription(currency: string, amount: number, gbpValue: number, usdValue: number, payPalLink: string, venmoLink: string) {
+function getDescription(
+  currency: string,
+  amount: number,
+  gbpValue: number,
+  usdValue: number,
+  payPalLink: string,
+  venmoLink: string,
+) {
   const isUSD = currency === "USD";
   const isGBP = currency === "GBP";
 
@@ -52,11 +59,20 @@ Venmo: ${venmoLink}
 
   const twoDp = numberWithCommas(amount);
   if (isUSD || isGBP) {
-    return "Please pay Jamie " + getSymbolFromCurrency(currency) + twoDp + links;
+    return (
+      "Please pay Jamie " + getSymbolFromCurrency(currency) + twoDp + links
+    );
   }
 
   if (gbpValue && usdValue) {
-    return "That's only $" + usdValue.toFixed(2) + " or £" + gbpValue.toFixed(2) + " " + links;
+    return (
+      "That's only $" +
+      usdValue.toFixed(2) +
+      " or £" +
+      gbpValue.toFixed(2) +
+      " " +
+      links
+    );
   }
 
   if (gbpValue) {
@@ -73,8 +89,8 @@ Venmo: ${venmoLink}
 export async function generateMetadata({
   params,
 }: {
-  params: { expression: string },
-  searchParams: {}
+  params: { expression: string };
+  searchParams: {};
 }): Promise<Metadata> {
   const expression = params.expression;
   if (!expression) {
@@ -82,7 +98,7 @@ export async function generateMetadata({
   }
   const { amount, currency } = parseMoneyExpression(expression);
   const res = await fetch(`${origin}/api/v1/to-gbp/${amount}/${currency}`);
-  const body = await res.json() as any;
+  const body = (await res.json()) as any;
   const usd = parseFloat(body["USD"]);
   const gbp = parseFloat(body["GBP"]);
   const title = getTitle(currency, amount);
@@ -92,7 +108,14 @@ export async function generateMetadata({
   const payPalLink = getPayPalLink(gbpValue);
   const venmoLink = getVenmoLink(usdValue);
 
-  const desc = getDescription(currency, amount, gbp, usd, payPalLink, venmoLink);
+  const desc = getDescription(
+    currency,
+    amount,
+    gbp,
+    usd,
+    payPalLink,
+    venmoLink,
+  );
 
   return {
     title: title,
@@ -101,7 +124,7 @@ export async function generateMetadata({
 }
 
 function getPayPalLink(payPalValue: number) {
-  return `https://paypal.me/jamierpond/${payPalValue.toFixed(2)}`
+  return `https://paypal.me/jamierpond/${payPalValue.toFixed(2)}`;
 }
 
 function getGBPValue(currency: string, amount: number, gbpValue: number) {
@@ -110,19 +133,28 @@ function getGBPValue(currency: string, amount: number, gbpValue: number) {
   return payPalValue;
 }
 
-function PayPalButton({ currency, amount, gbpValue }: { currency: string, amount: number, gbpValue: number }) {
+function PayPalButton({
+  currency,
+  amount,
+  gbpValue,
+}: {
+  currency: string;
+  amount: number;
+  gbpValue: number;
+}) {
   const payPalValue = getGBPValue(currency, amount, gbpValue);
   const formattedAmount = numberWithCommas(payPalValue);
-  const message = ` (£${formattedAmount})`
+  const message = ` (£${formattedAmount})`;
 
   return (
     <a
       className="block mx-auto my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      href={getPayPalLink(payPalValue)}>PayPal {message}
+      href={getPayPalLink(payPalValue)}
+    >
+      PayPal {message}
     </a>
   );
 }
-
 
 function getVenmoLink(value: number) {
   return `https://venmo.com/?txn=pay&audience=friends&recipients=jamiepond&amount=${value.toFixed(2)}`;
@@ -134,17 +166,26 @@ function getUsdValue(currency: string, amount: number, givenUsdValue: number) {
   return usdValue;
 }
 
-function VenmoButton({ currency, amount, givenUsdValue }: { currency: string, amount: number, givenUsdValue: number }) {
+function VenmoButton({
+  currency,
+  amount,
+  givenUsdValue,
+}: {
+  currency: string;
+  amount: number;
+  givenUsdValue: number;
+}) {
   const usdValue = getUsdValue(currency, amount, givenUsdValue);
   const formattedAmount = numberWithCommas(usdValue);
-  const usdMessage = ` ($${formattedAmount})`
+  const usdMessage = ` ($${formattedAmount})`;
   const isUSD = currency === "USD";
   const showUsdMessage = isNumberValid(givenUsdValue) || isUSD;
   const message = showUsdMessage ? usdMessage : "";
   return (
     <a
       className="block mx-auto my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      href={getVenmoLink(usdValue)}>
+      href={getVenmoLink(usdValue)}
+    >
       Venmo {message}
     </a>
   );
@@ -154,8 +195,8 @@ export default async function Pay({
   params,
   searchParams,
 }: {
-  params: { expression: string },
-  searchParams: {}
+  params: { expression: string };
+  searchParams: {};
 }) {
   const expression = params.expression;
   if (!expression) {
@@ -163,7 +204,7 @@ export default async function Pay({
   }
   const { amount, currency } = parseMoneyExpression(expression);
   const res = await fetch(`${origin}/api/v1/to-gbp/${amount}/${currency}`);
-  const body = await res.json() as any;
+  const body = (await res.json()) as any;
   const usd = parseFloat(body["USD"]);
   const gbp = parseFloat(body["GBP"]);
   const title = getTitle(currency, amount);

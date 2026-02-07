@@ -2,11 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   /* nothing to see here yet */
 }
-
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -30,4 +28,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.texture-bg {
+  background-image: url("/texture.jpg");
+  background-size: 512px 512px;
+  background-repeat: repeat;
 }

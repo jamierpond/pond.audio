@@ -2,43 +2,45 @@
   "name": "pond.audio",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.17.1",
   "pnpm": {
     "onlyBuiltDependencies": [
       "sharp"
     ]
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "knip": "knip"
   },
   "dependencies": {
-    "@types/react-dom": "18.2.6",
-    "autoprefixer": "10.4.14",
-    "base64-js": "^1.5.1",
-    "country-to-currency": "^1.0.11",
+    "@next/third-parties": "^16.1.6",
+    "country-to-currency": "^1.1.5",
     "currency-symbol-map": "^5.1.0",
-    "eslint": "8.44.0",
-    "eslint-config-next": "13.4.9",
-    "framer-motion": "^12.24.0",
-    "github-calendar": "^2.3.2",
+    "framer-motion": "^12.33.0",
     "lucide-react": "^0.562.0",
-    "next": "^16.1.1",
-    "next-absolute-url": "^1.2.2",
-    "pako": "^2.1.0",
-    "postcss": "8.4.25",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-github-calendar": "^4.0.8",
-    "react-qr-code": "^2.0.12",
-    "rss-parser": "^3.13.0",
-    "sharp": "^0.34.5",
-    "tailwindcss": "3.3.2"
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-github-calendar": "^4.5.11",
+    "react-qr-code": "^2.0.18",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "@types/node": "22.10.5",
-    "@types/react": "19.0.2",
-    "typescript": "5.7.2"
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.1.6",
+    "knip": "^5.83.1",
+    "postcss": "^8.4.25",
+    "prettier": "^3.8.1",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.7.2"
   }
 }

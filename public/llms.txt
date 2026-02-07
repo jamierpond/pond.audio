@@ -1,0 +1,17 @@
+# pond.audio
+
+## Summary
+Personal site for Jamie Pond, Staff Software Engineer focused on audio software, AI music tools, and developer infrastructure.
+
+## Topics
+- audio software engineering
+- AI music tools
+- C++ / DSP / SIMD
+- developer tools
+- real-time systems
+
+## Primary Pages
+- https://pond.audio/
+
+## Additional Links
+- https://pond.audio/sitemap.xml

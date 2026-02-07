@@ -1,7 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
-import sharp from 'sharp';
+import sharp from "sharp";
 import { createImage } from "./CreateImage";
-
 
 export async function GET(request: NextRequest) {
   const pathName = request.nextUrl.pathname;
@@ -21,14 +20,13 @@ export async function GET(request: NextRequest) {
 
   const pngBuffer = await sharp(Buffer.from(svg))
     .resize(width, height)
-    .toFormat('png')
+    .toFormat("png")
     .toBuffer();
 
-  return new NextResponse(pngBuffer, {
+  return new NextResponse(new Uint8Array(pngBuffer), {
     headers: {
-      'Content-Type': 'image/png',
-      'Cache-Control': 'public, max-age=31536000, immutable',
+      "Content-Type": "image/png",
+      "Cache-Control": "public, max-age=31536000, immutable",
     },
   });
 }
-

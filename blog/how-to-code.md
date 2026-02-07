@@ -57,9 +57,9 @@ Once installed, you will use VS Code to open and edit the website code.
 
 You can:
 
-* Clone the project
-* See what files you changed
-* Commit and push your changes to GitHub
+- Clone the project
+- See what files you changed
+- Commit and push your changes to GitHub
 
 Download here:
 [https://desktop.github.com/](https://desktop.github.com/)
@@ -118,8 +118,8 @@ Any edits you make will show here.
 
 This website is built with **React** and **Next.js**.
 
-* **React** = a way of building a site from small building blocks called **components**.
-* **Next.js** = a framework that adds routing, performance, and extra features on top of React.
+- **React** = a way of building a site from small building blocks called **components**.
+- **Next.js** = a framework that adds routing, performance, and extra features on top of React.
 
 Example: in `app/page.tsx` you will see this code:
 
@@ -131,16 +131,15 @@ That defines the **main page component**.
 
 Other things you will see:
 
-* The **portfolioData** object at the top contains all the text and images that appear on the site.
-* The **AnimatedHeroText** component makes the text animate at the top.
-* The **Projects** section is built by looping through `portfolioData.projects`.
+- The **portfolioData** object at the top contains all the text and images that appear on the site.
+- The **AnimatedHeroText** component makes the text animate at the top.
+- The **Projects** section is built by looping through `portfolioData.projects`.
 
 #### How to edit:
 
 1. Open VS Code
 2. Open your project folder
-   (File → Open Folder → select your project)
-   3. You will see files like:
+   (File → Open Folder → select your project) 3. You will see files like:
 
    ```
    /app/page.tsx
@@ -155,16 +154,16 @@ Other things you will see:
 
 If you want to learn **what React is doing under the hood**, I strongly recommend:
 
-* Asking **ChatGPT** inside VS Code
+- Asking **ChatGPT** inside VS Code
   (install the "ChatGPT" extension for VS Code if you want)
-  * Or just asking me (your brother)
-  * Or searching: "React components beginner guide" or "How React works"
+  - Or just asking me (your brother)
+  - Or searching: "React components beginner guide" or "How React works"
 
   React is very popular, there are **tons of tutorials and videos**.
 
   But to start — you can just edit this file and change text/images without needing to deeply know React.
 
-  ---
+  ***
 
 ### 9. Push your changes
 
@@ -182,7 +181,6 @@ git push
 
 ### Summary (Most common commands)
 
-* `npx next dev` → run the site locally
-* Edit code in VS Code
-* Push changes with GitHub Desktop or `git push`
-
+- `npx next dev` → run the site locally
+- Edit code in VS Code
+- Push changes with GitHub Desktop or `git push`

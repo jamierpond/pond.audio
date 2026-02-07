@@ -1,10 +1,15 @@
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 
-export function BlogItem ({ title, content, createdAt, editedAt }: {
-  title: string,
-  content: ReactElement,
-  createdAt: string,
-  editedAt: string,
+export function BlogItem({
+  title,
+  content,
+  createdAt,
+  editedAt,
+}: {
+  title: string;
+  content: ReactElement;
+  createdAt: string;
+  editedAt: string;
 }) {
   return (
     <div>

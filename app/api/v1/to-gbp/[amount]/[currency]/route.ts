@@ -21,17 +21,16 @@ export async function GET(request: NextRequest) {
 
   if (currency.toUpperCase() == "GBP") {
     const usdAmount: number = await convertCurrency(amount, currency, "USD");
-    return NextResponse.json({ "USD": usdAmount });
+    return NextResponse.json({ USD: usdAmount });
   }
 
   if (currency.toUpperCase() == "USD") {
     const usdAmount: number = await convertCurrency(amount, currency, "GBP");
-    return NextResponse.json({ "GBP": usdAmount });
+    return NextResponse.json({ GBP: usdAmount });
   }
 
   const usdAmount: number = await convertCurrency(amount, currency, "USD");
   const gbpAmount: number = await convertCurrency(amount, currency, "GBP");
 
-  return NextResponse.json({ "GBP": gbpAmount, "USD": usdAmount });
+  return NextResponse.json({ GBP: gbpAmount, USD: usdAmount });
 }
-
