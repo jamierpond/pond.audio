@@ -65,6 +65,13 @@ const TALKS = [
   { conf: "ADC 2021", title: "Compiler Intrinsics", videoId: "X8dPANPmC7E" },
 ];
 
+const PROJECTS = [
+  { href: "https://hollywoodrunclub.com", label: "Hollywood Run Club" },
+  { href: "https://madea.blog", label: "madea.blog" },
+  { href: "https://cowsinlove.com", label: "Cows In Love" },
+  { href: "https://mr-nibbles.com", label: "Mr Nibbles" },
+];
+
 const HIGHLIGHTS = [
   {
     label: "Drayk It",
@@ -378,6 +385,19 @@ export default function Home() {
               </a>
             ))}
           </div>
+        </div>
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-6 text-xs text-neutral-700">
+          {PROJECTS.map(({ href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-neutral-400 transition-colors"
+            >
+              {label}
+            </a>
+          ))}
         </div>
         <p className="text-center text-xs text-neutral-700 mt-6">
           🦞 This footer was added by{" "}
