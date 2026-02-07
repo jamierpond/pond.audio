@@ -2,9 +2,16 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, ExternalLink, ArrowUpRight } from "lucide-react";
 import GithubCalendar from "./GithubCalendar";
 import { SOCIAL_LINKS } from "./socials";
+
+const SOCIALS = [
+  { href: "https://github.com/jamierpond", icon: Github, label: "GitHub" },
+  { href: "https://x.com/jamiepondx", icon: Twitter, label: "X" },
+  { href: "https://www.linkedin.com/in/jamierpond", icon: Linkedin, label: "LinkedIn" },
+  { href: "mailto:jamie@pond.audio", icon: Mail, label: "Email" },
+];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -99,7 +106,7 @@ export default function Home() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3">
-            {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
+            {SOCIALS.map(({ href, icon: Icon, label }) => (
               <a
                 key={label}
                 href={href}

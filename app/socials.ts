@@ -1,14 +1,6 @@
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
-
-type SocialLink = {
-  href: string;
-  label: string;
-  icon: typeof Github;
-};
-
-export const SOCIAL_LINKS: SocialLink[] = [
-  { href: "https://github.com/jamierpond", icon: Github, label: "GitHub" },
-  { href: "https://x.com/jamiepondx", icon: Twitter, label: "X" },
-  { href: "https://www.linkedin.com/in/jamierpond", icon: Linkedin, label: "LinkedIn" },
-  { href: "mailto:jamie@pond.audio", icon: Mail, label: "Email" },
-];
+export const SOCIAL_LINKS = [
+  { href: "https://github.com/jamierpond", label: "GitHub" },
+  { href: "https://x.com/jamiepondx", label: "X" },
+  { href: "https://www.linkedin.com/in/jamierpond", label: "LinkedIn" },
+  { href: "mailto:jamie@pond.audio", label: "Email" },
+] as const;
