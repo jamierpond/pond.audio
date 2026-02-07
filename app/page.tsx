@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Mail, ExternalLink, ArrowUpRight } from "lucide-react";
+import { ExternalLink, ArrowUpRight } from "lucide-react";
 import GithubCalendar from "./GithubCalendar";
+import { SOCIAL_LINKS } from "./socials";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -52,21 +53,11 @@ const HIGHLIGHTS = [
   { label: "Discord game", desc: "Acquired by Playroom Studio", href: "https://www.linkedin.com/feed/update/urn:li:activity:7409399286628712448/", tag: "Acquired", tagColor: "green" },
 ];
 
-const SOCIALS = [
-  { href: "https://github.com/jamierpond", icon: Github, label: "GitHub" },
-  { href: "https://x.com/jamiepondx", icon: Twitter, label: "X" },
-  { href: "https://www.linkedin.com/in/jamierpond", icon: Linkedin, label: "LinkedIn" },
-  { href: "mailto:jamie@pond.audio", icon: Mail, label: "Email" },
-];
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-neutral-950 text-white selection:bg-white selection:text-black">
       {/* Texture */}
-      <div
-        className="fixed inset-0 opacity-[0.03] pointer-events-none z-0"
-        style={{ backgroundImage: "url(/texture.jpg)" }}
-      />
+      <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-0 texture-bg" />
 
       {/* Hero */}
       <motion.section
@@ -108,7 +99,7 @@ export default function Home() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3">
-            {SOCIALS.map(({ href, icon: Icon, label }) => (
+            {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
               <a
                 key={label}
                 href={href}
@@ -129,6 +120,64 @@ export default function Home() {
               🐑 yapi.run →
             </a>
           </motion.div>
+        </div>
+      </motion.section>
+
+      {/* About */}
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={stagger}
+        className="relative z-10 px-6 md:px-12 lg:px-24 py-16 border-t border-neutral-900"
+      >
+        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase">
+          Audio Software, AI Music Tools, and Developer Infrastructure
+        </motion.h2>
+
+        <div className="max-w-4xl space-y-6 text-neutral-400 leading-relaxed">
+          <motion.p variants={fadeUp}>
+            I’m a Staff Software Engineer focused on audio software, AI music tools, and developer infrastructure.
+            My work spans low-latency DSP, real-time systems, and tooling that helps teams ship reliable audio
+            experiences. I care about performance, clarity, and building workflows that make advanced audio tech
+            usable for creators.
+          </motion.p>
+          <motion.p variants={fadeUp}>
+            Recent work includes building audio engines, AI-assisted creator tooling, and APIs for audio pipelines.
+            I often work in C++ and modern TypeScript/Node, with a focus on SIMD, profiling, and predictable system
+            behavior at scale. I also enjoy crafting developer tools that make audio experimentation faster and more
+            reproducible.
+          </motion.p>
+          <motion.p variants={fadeUp}>
+            I’ve led projects that range from prototype to production, including real-time audio processing,
+            machine-learning assisted music workflows, and internal platforms for audio data management. My approach
+            emphasizes reliability, thoughtful instrumentation, and clean interfaces that make complex systems easy
+            to debug. I value practical engineering that balances theoretical rigor with product constraints.
+          </motion.p>
+          <motion.h3 variants={fadeUp} className="text-base font-semibold text-white">
+            Developer Tools, C++/DSP, and Performance
+          </motion.h3>
+          <motion.p variants={fadeUp}>
+            My projects frequently combine performance-oriented code (SIMD, compiler intrinsics, and tight audio
+            loops) with ergonomic developer tooling. That includes CLI utilities, API clients, and internal libraries
+            that reduce friction in audio R&amp;D. I’m always looking for the smallest set of primitives that unlocks
+            creative workflows.
+          </motion.p>
+          <motion.h3 variants={fadeUp} className="text-base font-semibold text-white">
+            Audio Software Systems and AI Music Tooling
+          </motion.h3>
+          <motion.p variants={fadeUp}>
+            I’m especially interested in audio engines that scale across devices while keeping latency low and
+            quality high. That includes careful attention to scheduling, buffering strategies, and consistent
+            monitoring so performance stays predictable. On the AI side, I focus on tooling that helps creators
+            move from ideas to playable outputs with minimal friction, while preserving intent and musicality.
+          </motion.p>
+          <motion.p variants={fadeUp}>
+            If you’re building audio products, I can help with system design, performance optimization, and creating
+            developer-friendly APIs. My sweet spot is the intersection of high-performance audio code and the tooling
+            required to iterate quickly—profiling pipelines, test harnesses, and reproducible build systems that let
+            teams ship confidently.
+          </motion.p>
         </div>
       </motion.section>
 
@@ -284,7 +333,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-neutral-600">
           <p>pond.audio</p>
           <div className="flex gap-6">
-            {SOCIALS.map(({ href, label }) => (
+            {SOCIAL_LINKS.map(({ href, label }) => (
               <a
                 key={label}
                 href={href}

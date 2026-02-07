@@ -31,3 +31,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.texture-bg {
+  background-image: url("/texture.jpg");
+  background-size: 512px 512px;
+  background-repeat: repeat;
+}

@@ -2,6 +2,8 @@ import './globals.css'
 import { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
+import { SOCIAL_LINKS } from './socials'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -9,9 +11,10 @@ const jetbrainsMono = JetBrains_Mono({
   fallback: ['ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
 })
 
-const title = 'Jamie Pond | Staff Software Engineer - Audio, AI & Developer Tools';
+const title = 'Jamie Pond — Staff Software Engineer in Audio & AI';
 const description =
-  'Jamie Pond is a Staff Software Engineer in Los Angeles specializing in audio software, AI music tools, and developer infrastructure. EB-1A visa recipient. Speaker at CppCon, ADC, and C++ on Sea. Creator of yapi.run. Previously Lead Audio Engineer at mayk.it.';
+  'Jamie Pond is a Staff Software Engineer in Los Angeles focused on audio software, AI music tools, and developer infrastructure. Speaker at CppCon and ADC.';
+const ga4MeasurementId = 'G-JWWVXENNZ7';
 
 const ogImages = [{
   url: '/og',
@@ -95,11 +98,7 @@ const personJsonLd = {
     name: 'Tamber',
     url: 'https://tamber.music/',
   },
-  sameAs: [
-    'https://github.com/jamierpond',
-    'https://x.com/jamiepondx',
-    'https://www.linkedin.com/in/jamierpond',
-  ],
+  sameAs: SOCIAL_LINKS.filter((link) => link.label !== 'Email').map((link) => link.href),
   knowsAbout: [
     'Audio Software Engineering',
     'C++',
@@ -110,12 +109,6 @@ const personJsonLd = {
     'Compiler Intrinsics',
   ],
   alumniOf: [],
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Los Angeles',
-    addressRegion: 'CA',
-    addressCountry: 'US',
-  },
   email: 'jamie@pond.audio',
 };
 
@@ -140,7 +133,7 @@ const profilePageJsonLd = {
     url: 'https://pond.audio',
     image: 'https://pond.audio/pup400.jpg',
     jobTitle: 'Staff Software Engineer',
-    description: 'Staff Software Engineer specializing in audio software, AI music tools, and developer infrastructure.',
+    description: 'Staff Software Engineer focused on audio software, AI music tools, and developer infrastructure.',
   },
   dateCreated: '2023-01-01T00:00:00+00:00',
   dateModified: new Date().toISOString(),
@@ -224,6 +217,7 @@ export default function RootLayout({
       </head>
       <body className={`${jetbrainsMono.className} bg-neutral-950`}>
         {children}
+        <GoogleAnalytics gaId={ga4MeasurementId} />
       </body>
     </html>
   )
