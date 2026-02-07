@@ -1,6 +1,6 @@
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 
-export type SocialLink = {
+type SocialLink = {
   href: string;
   label: string;
   icon: typeof Github;
