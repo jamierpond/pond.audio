@@ -2,7 +2,7 @@ import "./globals.css";
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
-import { SOCIAL_LINKS } from "./socials";
+import { SOCIAL_LINKS, TALKS } from "./socials";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -99,55 +99,81 @@ export const metadata: Metadata = {
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://pond.audio/#person",
   name: "Jamie Pond",
+  givenName: "Jamie",
+  familyName: "Pond",
   url: "https://pond.audio",
-  image: "https://pond.audio/pup400.jpg",
+  image: {
+    "@type": "ImageObject",
+    url: "https://pond.audio/pup400.jpg",
+    width: 400,
+    height: 400,
+  },
+  description:
+    "Staff Software Engineer specializing in audio software, AI music tools, and developer infrastructure. EB-1A visa holder, conference speaker at CppCon and ADC, and creator of yapi.",
   jobTitle: "Staff Software Engineer",
+  hasOccupation: {
+    "@type": "Occupation",
+    name: "Staff Software Engineer",
+    occupationalCategory: "15-1252.00",
+    skills:
+      "Audio Software Engineering, C++, TypeScript, Real-Time DSP, AI Music Tools",
+  },
   worksFor: {
     "@type": "Organization",
     name: "Tamber",
     url: "https://tamber.music/",
   },
-  sameAs: SOCIAL_LINKS.filter((link) => link.label !== "Email").map(
-    (link) => link.href,
-  ),
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Los Angeles",
+    addressRegion: "CA",
+    addressCountry: "US",
+  },
+  nationality: {
+    "@type": "Country",
+    name: "United Kingdom",
+  },
+  sameAs: [
+    ...SOCIAL_LINKS.filter((link) => link.label !== "Email").map(
+      (link) => link.href,
+    ),
+    "https://www.youtube.com/results?search_query=jamie+pond+cppcon",
+  ],
   knowsAbout: [
     "Audio Software Engineering",
     "C++",
+    "TypeScript",
     "AI Music Tools",
     "Digital Signal Processing",
     "Developer Tools",
     "SIMD",
     "Compiler Intrinsics",
+    "Real-Time Audio",
+    "gRPC",
+    "GraphQL",
   ],
-  alumniOf: [],
+  knowsLanguage: ["en"],
   email: "jamie@pond.audio",
+  award: "EB-1A Extraordinary Ability Visa",
 };
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://pond.audio/#website",
   name: "Jamie Pond",
   url: "https://pond.audio",
   description,
-  author: {
-    "@type": "Person",
-    name: "Jamie Pond",
-  },
+  publisher: { "@id": "https://pond.audio/#person" },
 };
 
 const profilePageJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
-  mainEntity: {
-    "@type": "Person",
-    name: "Jamie Pond",
-    url: "https://pond.audio",
-    image: "https://pond.audio/pup400.jpg",
-    jobTitle: "Staff Software Engineer",
-    description:
-      "Staff Software Engineer focused on audio software, AI music tools, and developer infrastructure.",
-  },
+  "@id": "https://pond.audio/#profilepage",
+  mainEntity: { "@id": "https://pond.audio/#person" },
   dateCreated: "2023-01-01T00:00:00+00:00",
   dateModified: new Date().toISOString(),
 };
@@ -156,52 +182,17 @@ const speakingJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "Conference Talks by Jamie Pond",
-  itemListElement: [
-    {
-      "@type": "VideoObject",
-      position: 1,
-      name: "Associative Iteration - CppCon 2024",
-      description:
-        "Jamie Pond presents on Associative Iteration at CppCon 2024.",
-      thumbnailUrl: "https://img.youtube.com/vi/7n1CVURp0DY/hqdefault.jpg",
-      uploadDate: "2024-01-01T00:00:00+00:00",
-      contentUrl: "https://www.youtube.com/watch?v=7n1CVURp0DY",
-      embedUrl: "https://www.youtube.com/embed/7n1CVURp0DY",
-    },
-    {
-      "@type": "VideoObject",
-      position: 2,
-      name: "Intro to SWAR - C++ on Sea 2024",
-      description:
-        "Jamie Pond introduces SWAR (SIMD Within A Register) techniques at C++ on Sea 2024.",
-      thumbnailUrl: "https://img.youtube.com/vi/4h7UZnWN67Y/hqdefault.jpg",
-      uploadDate: "2024-01-01T00:00:00+00:00",
-      contentUrl: "https://www.youtube.com/watch?v=4h7UZnWN67Y",
-      embedUrl: "https://www.youtube.com/embed/4h7UZnWN67Y",
-    },
-    {
-      "@type": "VideoObject",
-      position: 3,
-      name: "Prototyping at Mayk - ADC 2023",
-      description:
-        "Jamie Pond discusses rapid prototyping approaches at the Audio Developer Conference 2023.",
-      thumbnailUrl: "https://img.youtube.com/vi/1lEWl-MTA6k/hqdefault.jpg",
-      uploadDate: "2023-01-01T00:00:00+00:00",
-      contentUrl: "https://www.youtube.com/watch?v=1lEWl-MTA6k",
-      embedUrl: "https://www.youtube.com/embed/1lEWl-MTA6k",
-    },
-    {
-      "@type": "VideoObject",
-      position: 4,
-      name: "Compiler Intrinsics - ADC 2021",
-      description:
-        "Jamie Pond covers compiler intrinsics for audio development at ADC 2021.",
-      thumbnailUrl: "https://img.youtube.com/vi/X8dPANPmC7E/hqdefault.jpg",
-      uploadDate: "2021-01-01T00:00:00+00:00",
-      contentUrl: "https://www.youtube.com/watch?v=X8dPANPmC7E",
-      embedUrl: "https://www.youtube.com/embed/X8dPANPmC7E",
-    },
-  ],
+  itemListElement: TALKS.map((talk, i) => ({
+    "@type": "VideoObject",
+    position: i + 1,
+    name: `${talk.title} - ${talk.conf}`,
+    description: talk.description,
+    thumbnailUrl: `https://img.youtube.com/vi/${talk.videoId}/hqdefault.jpg`,
+    uploadDate: `${talk.uploadDate}T00:00:00+00:00`,
+    contentUrl: `https://www.youtube.com/watch?v=${talk.videoId}`,
+    embedUrl: `https://www.youtube.com/embed/${talk.videoId}`,
+    author: { "@id": "https://pond.audio/#person" },
+  })),
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

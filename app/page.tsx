@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, Mail, ArrowUpRight } from "lucide-react";
 import GithubCalendar from "./GithubCalendar";
-import { SOCIAL_LINKS } from "./socials";
+import { SOCIAL_LINKS, TALKS } from "./socials";
 
 const SOCIALS = [
   { href: "https://github.com/jamierpond", icon: Github, label: "GitHub" },
@@ -54,15 +54,11 @@ const WORK = [
   },
 ];
 
-const TALKS = [
-  {
-    conf: "CppCon 2024",
-    title: "Associative Iteration",
-    videoId: "7n1CVURp0DY",
-  },
-  { conf: "C++ on Sea 2024", title: "Intro to SWAR", videoId: "4h7UZnWN67Y" },
-  { conf: "ADC 2023", title: "Prototyping at Mayk", videoId: "1lEWl-MTA6k" },
-  { conf: "ADC 2021", title: "Compiler Intrinsics", videoId: "X8dPANPmC7E" },
+const PROJECTS = [
+  { href: "https://hollywoodrunclub.com", label: "Hollywood Run Club" },
+  { href: "https://madea.blog", label: "madea.blog" },
+  { href: "https://cowsinlove.com", label: "Cows In Love" },
+  { href: "https://mr-nibbles.com", label: "Mr Nibbles" },
 ];
 
 const PROJECTS = [
