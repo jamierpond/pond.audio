@@ -186,9 +186,9 @@ export default function Home() {
           className="max-w-3xl text-neutral-400 leading-relaxed"
         >
           Staff Software Engineer working on audio engines, real-time DSP, and
-          AI-driven music tools. I write C++ and TypeScript, speak at conferences
-          like CppCon and ADC, and build developer tools like yapi. EB-1A visa
-          holder based in Los Angeles.
+          AI-driven music tools. I write C++ and TypeScript, speak at
+          conferences like CppCon and ADC, and build developer tools like yapi.
+          EB-1A visa holder based in Los Angeles.
         </motion.p>
       </motion.section>
 
