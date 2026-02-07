@@ -173,6 +173,25 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* About */}
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={stagger}
+        className="relative z-10 px-6 md:px-12 lg:px-24 py-16 border-t border-neutral-900"
+      >
+        <motion.p
+          variants={fadeUp}
+          className="max-w-3xl text-neutral-400 leading-relaxed"
+        >
+          Staff Software Engineer working on audio engines, real-time DSP, and
+          AI-driven music tools. I write C++ and TypeScript, speak at conferences
+          like CppCon and ADC, and build developer tools like yapi. EB-1A visa
+          holder based in Los Angeles.
+        </motion.p>
+      </motion.section>
+
       {/* Work */}
       <motion.section
         initial="hidden"
