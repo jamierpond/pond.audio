@@ -2,11 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   /* nothing to see here yet */
 }
-
 
 :root {
   --foreground-rgb: 0, 0, 0;

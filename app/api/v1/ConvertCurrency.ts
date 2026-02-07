@@ -1,4 +1,8 @@
-export async function convertCurrency(amount: number, from: string, to: string): Promise<number> {
+export async function convertCurrency(
+  amount: number,
+  from: string,
+  to: string,
+): Promise<number> {
   const f = from.toUpperCase();
   const t = to.toUpperCase();
   const requestUrl = `https://api.fxratesapi.com/convert?from=${f}&to=${t}&amount=${amount}&format=json`;
@@ -8,7 +12,7 @@ export async function convertCurrency(amount: number, from: string, to: string):
   if (response.status !== 200) {
     throw Error("Failed to convert currency, status code: " + response.status);
   }
-  const data = await response.json() as any;
+  const data = (await response.json()) as any;
   if (data.success !== true) {
     throw Error("Failed to convert currency, success: " + data.success);
   }
@@ -20,5 +24,3 @@ export async function convertCurrency(amount: number, from: string, to: string):
 
   return result;
 }
-
-

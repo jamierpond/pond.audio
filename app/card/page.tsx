@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from 'react';
+import { useState, useRef } from "react";
 
 export default function VideoPage() {
   const videoSource = "/rick.mp4";
@@ -33,7 +33,7 @@ export default function VideoPage() {
         ref={videoRef}
         className="fixed inset-0 w-full h-full object-cover"
       >
-        <source src={videoSource}  />
+        <source src={videoSource} />
         Your browser does not support the video tag.
       </video>
 

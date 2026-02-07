@@ -9,7 +9,11 @@ import { SOCIAL_LINKS } from "./socials";
 const SOCIALS = [
   { href: "https://github.com/jamierpond", icon: Github, label: "GitHub" },
   { href: "https://x.com/jamiepondx", icon: Twitter, label: "X" },
-  { href: "https://www.linkedin.com/in/jamierpond", icon: Linkedin, label: "LinkedIn" },
+  {
+    href: "https://www.linkedin.com/in/jamierpond",
+    icon: Linkedin,
+    label: "LinkedIn",
+  },
   { href: "mailto:jamie@pond.audio", icon: Mail, label: "Email" },
 ];
 
@@ -26,7 +30,8 @@ const WORK = [
   {
     title: "Tamber",
     role: "Staff Software Engineer",
-    description: "AI-first music creation. Building the audio engine and creator tools.",
+    description:
+      "AI-first music creation. Building the audio engine and creator tools.",
     href: "https://tamber.music/",
     tag: "now",
     tagColor: "green",
@@ -34,7 +39,8 @@ const WORK = [
   {
     title: "yapi",
     role: "Creator",
-    description: "CLI-first API client for HTTP, gRPC, GraphQL, TCP. Open source.",
+    description:
+      "CLI-first API client for HTTP, gRPC, GraphQL, TCP. Open source.",
     href: "https://yapi.run/",
     tag: "oss",
     tagColor: "blue",
@@ -42,22 +48,45 @@ const WORK = [
   {
     title: "mayk.it",
     role: "Lead Audio Engineer",
-    description: "UGC music tools. Drayk It went viral. Covers.ai and Discord game both acquired.",
+    description:
+      "UGC music tools. Drayk It went viral. Covers.ai and Discord game both acquired.",
     href: "https://www.mayk.it/",
   },
 ];
 
 const TALKS = [
-  { conf: "CppCon 2024", title: "Associative Iteration", videoId: "7n1CVURp0DY" },
+  {
+    conf: "CppCon 2024",
+    title: "Associative Iteration",
+    videoId: "7n1CVURp0DY",
+  },
   { conf: "C++ on Sea 2024", title: "Intro to SWAR", videoId: "4h7UZnWN67Y" },
   { conf: "ADC 2023", title: "Prototyping at Mayk", videoId: "1lEWl-MTA6k" },
   { conf: "ADC 2021", title: "Compiler Intrinsics", videoId: "X8dPANPmC7E" },
 ];
 
 const HIGHLIGHTS = [
-  { label: "Drayk It", desc: "Viral AI Drake generator", href: "https://www.vibe.com/news/tech/drake-song-drayk-it-ai-software-1234730792/", tag: "Viral", tagColor: "blue" },
-  { label: "Covers.ai", desc: "Social music experiences", href: "https://covers.ai/", tag: "Acquired", tagColor: "green" },
-  { label: "Discord game", desc: "Acquired by Playroom Studio", href: "https://www.linkedin.com/feed/update/urn:li:activity:7409399286628712448/", tag: "Acquired", tagColor: "green" },
+  {
+    label: "Drayk It",
+    desc: "Viral AI Drake generator",
+    href: "https://www.vibe.com/news/tech/drake-song-drayk-it-ai-software-1234730792/",
+    tag: "Viral",
+    tagColor: "blue",
+  },
+  {
+    label: "Covers.ai",
+    desc: "Social music experiences",
+    href: "https://covers.ai/",
+    tag: "Acquired",
+    tagColor: "green",
+  },
+  {
+    label: "Discord game",
+    desc: "Acquired by Playroom Studio",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7409399286628712448/",
+    tag: "Acquired",
+    tagColor: "green",
+  },
 ];
 
 export default function Home() {
@@ -74,9 +103,17 @@ export default function Home() {
         className="relative z-10 px-6 md:px-12 lg:px-24 pt-16 pb-20"
       >
         <div className="max-w-5xl">
-          <motion.div variants={fadeUp} className="flex items-center gap-5 mb-8">
+          <motion.div
+            variants={fadeUp}
+            className="flex items-center gap-5 mb-8"
+          >
             <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden border-2 border-neutral-800 shrink-0">
-              <Image src="/pup400.jpg" alt="Jamie Pond" fill className="object-cover" />
+              <Image
+                src="/pup400.jpg"
+                alt="Jamie Pond"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="flex flex-col gap-2">
               <div className="flex flex-wrap gap-2">
@@ -87,7 +124,9 @@ export default function Home() {
                   Los Angeles
                 </span>
               </div>
-              <p className="text-sm text-neutral-500">Staff Software Engineer</p>
+              <p className="text-sm text-neutral-500">
+                Staff Software Engineer
+              </p>
             </div>
           </motion.div>
 
@@ -102,10 +141,14 @@ export default function Home() {
             variants={fadeUp}
             className="text-xl md:text-2xl text-neutral-400 max-w-2xl mb-10 leading-relaxed"
           >
-            Building audio software, AI music tools, and developer infrastructure.
+            Building audio software, AI music tools, and developer
+            infrastructure.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3">
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-wrap items-center gap-3"
+          >
             {SOCIALS.map(({ href, icon: Icon, label }) => (
               <a
                 key={label}
@@ -138,7 +181,10 @@ export default function Home() {
         variants={stagger}
         className="relative z-10 px-6 md:px-12 lg:px-24 py-16 border-t border-neutral-900"
       >
-        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase">
+        <motion.h2
+          variants={fadeUp}
+          className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase"
+        >
           Work
         </motion.h2>
 
@@ -157,11 +203,13 @@ export default function Home() {
                   <h3 className="text-2xl font-bold mb-1 flex items-center gap-3">
                     {item.title}
                     {item.tag && (
-                      <span className={`text-[10px] font-mono px-2 py-0.5 ${
-                        item.tagColor === "green"
-                          ? "bg-green-950 text-green-400 border-green-800"
-                          : "bg-blue-950 text-blue-400 border-blue-800"
-                      } border`}>
+                      <span
+                        className={`text-[10px] font-mono px-2 py-0.5 ${
+                          item.tagColor === "green"
+                            ? "bg-green-950 text-green-400 border-green-800"
+                            : "bg-blue-950 text-blue-400 border-blue-800"
+                        } border`}
+                      >
                         {item.tag}
                       </span>
                     )}
@@ -173,7 +221,9 @@ export default function Home() {
                   className="text-neutral-600 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
                 />
               </div>
-              <p className="text-neutral-400 leading-relaxed">{item.description}</p>
+              <p className="text-neutral-400 leading-relaxed">
+                {item.description}
+              </p>
             </motion.a>
           ))}
         </div>
@@ -187,7 +237,10 @@ export default function Home() {
         variants={stagger}
         className="relative z-10 px-6 md:px-12 lg:px-24 py-16 border-t border-neutral-900"
       >
-        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase">
+        <motion.h2
+          variants={fadeUp}
+          className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase"
+        >
           Highlights
         </motion.h2>
 
@@ -202,16 +255,20 @@ export default function Home() {
               className="group flex items-center gap-4 px-5 py-4 bg-neutral-900/30 border border-neutral-800 rounded-xl hover:bg-neutral-900 hover:border-neutral-700 transition-all"
             >
               <div>
-                <p className="font-semibold group-hover:text-white transition-colors">{item.label}</p>
+                <p className="font-semibold group-hover:text-white transition-colors">
+                  {item.label}
+                </p>
                 <p className="text-sm text-neutral-500">{item.desc}</p>
               </div>
-              <span className={`text-[10px] font-mono px-2 py-1 shrink-0 ${
-                item.tagColor === "blue"
-                  ? "bg-blue-950 text-blue-400 border border-blue-800"
-                  : item.tagColor === "green"
-                  ? "bg-green-950 text-green-400 border border-green-800"
-                  : "bg-neutral-800 text-neutral-400 border border-neutral-700"
-              }`}>
+              <span
+                className={`text-[10px] font-mono px-2 py-1 shrink-0 ${
+                  item.tagColor === "blue"
+                    ? "bg-blue-950 text-blue-400 border border-blue-800"
+                    : item.tagColor === "green"
+                      ? "bg-green-950 text-green-400 border border-green-800"
+                      : "bg-neutral-800 text-neutral-400 border border-neutral-700"
+                }`}
+              >
                 {item.tag}
               </span>
             </motion.a>
@@ -227,7 +284,10 @@ export default function Home() {
         variants={stagger}
         className="relative z-10 px-6 md:px-12 lg:px-24 py-16 border-t border-neutral-900"
       >
-        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase">
+        <motion.h2
+          variants={fadeUp}
+          className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase"
+        >
           Speaking
         </motion.h2>
 
@@ -250,7 +310,9 @@ export default function Home() {
                 />
               </div>
               <div className="p-5">
-                <p className="text-xs font-mono text-neutral-500 mb-1">{talk.conf}</p>
+                <p className="text-xs font-mono text-neutral-500 mb-1">
+                  {talk.conf}
+                </p>
                 <p className="font-semibold text-lg group-hover:text-white transition-colors">
                   {talk.title}
                 </p>
@@ -268,7 +330,10 @@ export default function Home() {
         variants={stagger}
         className="relative z-10 px-6 md:px-12 lg:px-24 py-16 border-t border-neutral-900"
       >
-        <motion.h2 variants={fadeUp} className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase">
+        <motion.h2
+          variants={fadeUp}
+          className="text-sm font-mono text-neutral-500 mb-8 tracking-widest uppercase"
+        >
           Activity
         </motion.h2>
 
@@ -296,7 +361,15 @@ export default function Home() {
           </div>
         </div>
         <p className="text-center text-xs text-neutral-700 mt-6">
-          🦞 This footer was added by <a href="https://openclaw.ai" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition-colors">OpenClaw</a>
+          🦞 This footer was added by{" "}
+          <a
+            href="https://openclaw.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-neutral-400 transition-colors"
+          >
+            OpenClaw
+          </a>
         </p>
       </footer>
     </main>

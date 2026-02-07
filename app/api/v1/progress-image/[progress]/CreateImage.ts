@@ -1,4 +1,8 @@
-export function createImage(amount: number, width: number, height: number): string {
+export function createImage(
+  amount: number,
+  width: number,
+  height: number,
+): string {
   const lineWithRatio = 0.1;
   const lineWidth = Math.min(width, height) * lineWithRatio;
   const radius = Math.min(width, height) / 2 - lineWidth; // 10 is the stroke width
@@ -34,5 +38,3 @@ export function createImage(amount: number, width: number, height: number): stri
 
   return svg;
 }
-
-

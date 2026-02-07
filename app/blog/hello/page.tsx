@@ -9,6 +9,11 @@ export default function Page() {
   }
 
   return (
-    <BlogItem title="Hello, world!" content={Content()} createdAt="2021-01-01" editedAt="2021-01-01" />
+    <BlogItem
+      title="Hello, world!"
+      content={Content()}
+      createdAt="2021-01-01"
+      editedAt="2021-01-01"
+    />
   );
 }
