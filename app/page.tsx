@@ -61,6 +61,13 @@ const PROJECTS = [
   { href: "https://mr-nibbles.com", label: "Mr Nibbles" },
 ];
 
+const PROJECTS = [
+  { href: "https://hollywoodrunclub.com", label: "Hollywood Run Club" },
+  { href: "https://madea.blog", label: "madea.blog" },
+  { href: "https://cowsinlove.com", label: "Cows In Love" },
+  { href: "https://mr-nibbles.com", label: "Mr Nibbles" },
+];
+
 const HIGHLIGHTS = [
   {
     label: "Drayk It",
