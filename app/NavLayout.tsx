@@ -2,32 +2,27 @@ import Link from "next/link";
 
 function Nav() {
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-red-950 p-6">
-      <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <Link href="/" className="font-semibold text-xl tracking-tight">
+    <nav className="relative z-10 px-6 md:px-12 lg:px-24 py-4 border-b border-neutral-900 bg-neutral-950">
+      <div className="flex items-center justify-between">
+        <Link
+          href="/"
+          className="text-sm font-mono text-neutral-500 hover:text-white transition-colors"
+        >
           pond.audio
         </Link>
-      </div>
-      <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div className="text-sm lg:flex-grow">
+        <div className="flex items-center gap-6 text-sm font-mono">
           <Link
             href="/blog"
-            className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+            className="text-neutral-500 hover:text-white transition-colors"
           >
             Blog
           </Link>
           <Link
             href="/email"
-            className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
+            className="text-neutral-500 hover:text-white transition-colors"
           >
             Contact
           </Link>
-          <a
-            href="https://als.pond.audio/"
-            className="block mt-4 lg:mx-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
-          >
-            Als Exploder
-          </a>
         </div>
       </div>
     </nav>
