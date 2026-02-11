@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-function Nav() {
+export function Nav() {
   return (
     <nav className="relative z-10 px-6 md:px-12 lg:px-24 py-4 border-b border-neutral-900 bg-neutral-950">
       <div className="flex items-center justify-between">
@@ -26,14 +26,5 @@ function Nav() {
         </div>
       </div>
     </nav>
-  );
-}
-
-export function NavLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <Nav />
-      {children}
-    </>
   );
 }

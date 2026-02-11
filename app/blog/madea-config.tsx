@@ -27,73 +27,227 @@ function formatDate(iso: string) {
   });
 }
 
+function Texture() {
+  return (
+    <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-0 texture-bg" />
+  );
+}
+
+const markdownComponents = {
+  h1: ({ ...props }: React.ComponentProps<"h1">) => (
+    <h1
+      className="text-3xl font-bold mt-0 mb-6 text-white first:mt-0"
+      {...props}
+    />
+  ),
+  h2: ({ ...props }: React.ComponentProps<"h2">) => (
+    <h2
+      className="text-2xl font-bold mt-10 mb-4 text-white border-b border-neutral-800 pb-2"
+      {...props}
+    />
+  ),
+  h3: ({ ...props }: React.ComponentProps<"h3">) => (
+    <h3 className="text-xl font-semibold mt-8 mb-3 text-white" {...props} />
+  ),
+  h4: ({ ...props }: React.ComponentProps<"h4">) => (
+    <h4 className="text-lg font-medium mt-6 mb-2 text-neutral-200" {...props} />
+  ),
+  p: ({ ...props }: React.ComponentProps<"p">) => (
+    <p className="text-lg my-5 leading-relaxed text-neutral-300" {...props} />
+  ),
+  a: ({ ...props }: React.ComponentProps<"a">) => (
+    <a
+      className="text-amber-400 hover:text-amber-300 underline underline-offset-2 transition-colors"
+      {...props}
+    />
+  ),
+  code: ({ className, children, ...props }: React.ComponentProps<"code">) => (
+    <code
+      className={`${className || ""} bg-amber-900/20 text-amber-300 rounded px-1.5 py-0.5 font-mono text-sm`}
+      {...props}
+    >
+      {children}
+    </code>
+  ),
+  pre: ({ ...props }: React.ComponentProps<"pre">) => (
+    <pre
+      className="bg-neutral-900 rounded-xl p-6 my-8 overflow-x-auto font-mono text-sm border border-neutral-800 shadow-lg"
+      {...props}
+    />
+  ),
+  blockquote: ({ ...props }: React.ComponentProps<"blockquote">) => (
+    <blockquote
+      className="border-l-4 border-amber-500 bg-amber-900/10 pl-6 py-4 pr-4 my-8 text-neutral-300 italic rounded-r-lg"
+      {...props}
+    />
+  ),
+  ul: ({ ...props }: React.ComponentProps<"ul">) => (
+    <ul
+      className="list-disc pl-6 my-6 space-y-3 text-neutral-300 marker:text-amber-500"
+      {...props}
+    />
+  ),
+  ol: ({ ...props }: React.ComponentProps<"ol">) => (
+    <ol
+      className="list-decimal pl-6 my-6 space-y-3 text-neutral-300 marker:text-amber-500"
+      {...props}
+    />
+  ),
+  li: ({ ...props }: React.ComponentProps<"li">) => (
+    <li className="text-lg leading-relaxed" {...props} />
+  ),
+  img: ({ ...props }: React.ComponentProps<"img">) => (
+    <span className="flex justify-center my-10">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="max-w-full h-auto rounded-xl shadow-2xl border border-neutral-800"
+        {...props}
+        alt={props.alt || ""}
+      />
+    </span>
+  ),
+  table: ({ ...props }: React.ComponentProps<"table">) => (
+    <div className="overflow-x-auto my-10 rounded-xl border border-neutral-800 shadow-lg">
+      <table className="min-w-full divide-y divide-neutral-800" {...props} />
+    </div>
+  ),
+  thead: ({ ...props }: React.ComponentProps<"thead">) => (
+    <thead className="bg-neutral-900" {...props} />
+  ),
+  tbody: ({ ...props }: React.ComponentProps<"tbody">) => (
+    <tbody className="divide-y divide-neutral-800 bg-neutral-950" {...props} />
+  ),
+  tr: ({ ...props }: React.ComponentProps<"tr">) => (
+    <tr className="hover:bg-neutral-900/50 transition-colors" {...props} />
+  ),
+  th: ({ ...props }: React.ComponentProps<"th">) => (
+    <th
+      className="px-6 py-4 text-left text-xs font-semibold text-neutral-300 uppercase tracking-wider"
+      {...props}
+    />
+  ),
+  td: ({ ...props }: React.ComponentProps<"td">) => (
+    <td className="px-6 py-4 text-base text-neutral-300" {...props} />
+  ),
+  hr: ({ ...props }: React.ComponentProps<"hr">) => (
+    <hr className="my-12 border-t border-neutral-800" {...props} />
+  ),
+  strong: ({ ...props }: React.ComponentProps<"strong">) => (
+    <strong className="font-bold text-white" {...props} />
+  ),
+  em: ({ ...props }: React.ComponentProps<"em">) => (
+    <em className="italic text-neutral-200" {...props} />
+  ),
+  sup: ({ ...props }: React.ComponentProps<"sup">) => (
+    <sup className="text-sm text-amber-400 font-bold align-super" {...props} />
+  ),
+  section: ({ className, ...props }: React.ComponentProps<"section">) => {
+    if (className === "footnotes") {
+      return (
+        <section className="mt-12 pt-8 border-t border-neutral-800" {...props}>
+          {props.children}
+        </section>
+      );
+    }
+    return <section className={className} {...props} />;
+  },
+};
+
 function ArticleView({ article, username, branch }: ArticleViewProps) {
   const { content, commitInfo, title, path } = article;
   const sourceUrl = `https://github.com/${username}/${REPO}/blob/${branch}/${path}`;
+  const wordCount = content.split(/\s+/).length;
+  const readingTime = Math.ceil(wordCount / 200);
 
   return (
-    <div className="min-h-screen bg-neutral-950 px-6 md:px-12 lg:px-24 py-16">
-      <Link
-        href="/blog"
-        className="inline-block mb-10 text-sm font-mono text-neutral-500 hover:text-white transition-colors"
-      >
-        &larr; Back to posts
-      </Link>
+    <div className="relative min-h-screen">
+      <Texture />
+      <div className="relative z-10 px-6 md:px-12 lg:px-24 py-16">
+        <Link
+          href="/blog"
+          className="group inline-flex items-center gap-2 mb-12 text-sm font-mono text-neutral-500 hover:text-white transition-colors"
+        >
+          <span className="transform group-hover:-translate-x-1 transition-transform">
+            &larr;
+          </span>
+          Back to posts
+        </Link>
 
-      <article className="max-w-3xl">
-        <header className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-            {title}
-          </h1>
-          <div className="flex flex-wrap items-center gap-4 text-sm font-mono text-neutral-500">
-            <span>{formatDate(commitInfo.date)}</span>
-            <a
-              href={sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+        <article className="max-w-3xl">
+          <header className="mb-10 pb-8 border-b border-neutral-800">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
+              {title}
+            </h1>
+            <div className="flex flex-wrap items-center gap-4 text-sm font-mono text-neutral-500">
+              <span>{formatDate(commitInfo.date)}</span>
+              <span className="text-neutral-700">|</span>
+              <span>{readingTime} min read</span>
+              <span className="text-neutral-700">|</span>
+              <a
+                href={sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                View source
+              </a>
+            </div>
+          </header>
+
+          <div className="prose prose-lg prose-invert max-w-none">
+            <Markdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeHighlight]}
+              components={markdownComponents}
             >
-              View source
-            </a>
+              {content}
+            </Markdown>
           </div>
-        </header>
-
-        <div className="prose prose-invert prose-neutral max-w-none prose-headings:font-bold prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline prose-code:text-amber-300 prose-pre:bg-neutral-900 prose-pre:border prose-pre:border-neutral-800">
-          <Markdown
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeHighlight]}
-          >
-            {content}
-          </Markdown>
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
   );
 }
 
 function FileBrowserView({ articles }: FileBrowserViewProps) {
   return (
-    <div className="min-h-screen bg-neutral-950 px-6 md:px-12 lg:px-24 py-16">
-      <div className="max-w-3xl">
-        <h1 className="text-sm font-mono text-neutral-500 mb-10 tracking-widest uppercase">
-          Blog
-        </h1>
+    <div className="relative min-h-screen">
+      <Texture />
+      <div className="relative z-10 px-6 md:px-12 lg:px-24 py-16">
+        <div className="max-w-3xl">
+          <h1 className="text-sm font-mono text-neutral-500 mb-10 tracking-widest uppercase">
+            Blog
+          </h1>
 
-        <div className="space-y-1">
-          {articles.map((article: FileInfo) => (
-            <Link
-              key={article.sha}
-              href={`/blog/${article.path}`}
-              className="group flex items-baseline justify-between gap-4 py-4 border-b border-neutral-900 hover:border-neutral-700 transition-colors"
-            >
-              <h2 className="text-lg font-semibold text-neutral-300 group-hover:text-white transition-colors">
-                {article.title}
-              </h2>
-              <span className="text-sm font-mono text-neutral-600 shrink-0">
-                {formatDate(article.commitInfo.date)}
-              </span>
-            </Link>
-          ))}
+          <div className="space-y-4">
+            {articles.map((article: FileInfo) => (
+              <Link
+                key={article.sha}
+                href={`/blog/${article.path}`}
+                className="group block p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:bg-neutral-900 hover:border-neutral-700 transition-all"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <h2 className="text-xl font-semibold text-neutral-200 group-hover:text-white transition-colors">
+                    {article.title}
+                  </h2>
+                  <span className="text-sm font-mono text-neutral-600 shrink-0 pt-1">
+                    {formatDate(article.commitInfo.date)}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -102,8 +256,9 @@ function FileBrowserView({ articles }: FileBrowserViewProps) {
 
 function NoRepoFoundView({ username }: NoRepoFoundViewProps) {
   return (
-    <div className="min-h-screen bg-neutral-950 flex items-center justify-center px-6">
-      <div className="text-center">
+    <div className="relative min-h-screen flex items-center justify-center px-6">
+      <Texture />
+      <div className="relative z-10 text-center">
         <h1 className="text-2xl font-bold text-white mb-2">No posts found</h1>
         <p className="text-neutral-500 font-mono text-sm">
           Could not load blog for {username}
@@ -115,8 +270,11 @@ function NoRepoFoundView({ username }: NoRepoFoundViewProps) {
 
 function LandingView() {
   return (
-    <div className="min-h-screen bg-neutral-950 flex items-center justify-center px-6">
-      <h1 className="text-2xl font-bold text-white">Blog</h1>
+    <div className="relative min-h-screen flex items-center justify-center px-6">
+      <Texture />
+      <div className="relative z-10">
+        <h1 className="text-2xl font-bold text-white">Blog</h1>
+      </div>
     </div>
   );
 }
