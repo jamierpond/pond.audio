@@ -30,10 +30,12 @@ function formatDate(iso: string) {
 function extractDescription(content: string): string {
   const withoutTitle = content.replace(/^#[^\n]*\n/, "");
   const paragraph =
-    withoutTitle
-      .split("\n\n")
-      .find((p) => p.trim() && !p.startsWith("#")) || "";
-  return paragraph.replace(/[#*_`\[\]]/g, "").trim().slice(0, 200);
+    withoutTitle.split("\n\n").find((p) => p.trim() && !p.startsWith("#")) ||
+    "";
+  return paragraph
+    .replace(/[#*_`\[\]]/g, "")
+    .trim()
+    .slice(0, 200);
 }
 
 function Texture() {
