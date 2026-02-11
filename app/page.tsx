@@ -363,10 +363,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-neutral-600">
           <p>pond.audio</p>
           <div className="flex gap-6">
-            <Link
-              href="/blog"
-              className="hover:text-white transition-colors"
-            >
+            <Link href="/blog" className="hover:text-white transition-colors">
               Blog
             </Link>
             {SOCIAL_LINKS.map(({ href, label }) => (
