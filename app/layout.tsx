@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import { SOCIAL_LINKS, TALKS } from "./socials";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Nav } from "./NavLayout";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -222,6 +223,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body className={`${jetbrainsMono.className} bg-neutral-950`}>
+        <Nav />
         {children}
         <GoogleAnalytics gaId={ga4MeasurementId} />
       </body>
