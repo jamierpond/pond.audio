@@ -53,4 +53,5 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter madea-blog-core build
       - run: pnpm build
