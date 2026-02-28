@@ -1,0 +1,4 @@
+{
+  "ignore": ["madea-blog-core/**"],
+  "ignoreDependencies": ["madea-blog-core"]
+}

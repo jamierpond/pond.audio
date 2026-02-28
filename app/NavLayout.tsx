@@ -1,44 +1,33 @@
 import Link from "next/link";
 
-function Nav() {
+export function Nav() {
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-red-950 p-6">
-      <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <Link href="/" className="font-semibold text-xl tracking-tight">
-          pond.audio
+    <nav className="relative z-10 px-6 md:px-12 lg:px-24 py-4 border-b border-neutral-900/80 bg-neutral-950/80 backdrop-blur-md">
+      <div className="flex items-center justify-between">
+        <Link
+          href="/"
+          className="group flex items-center gap-2 text-sm font-mono"
+        >
+          <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 group-hover:shadow-[0_0_8px_rgba(245,158,11,0.5)] transition-shadow" />
+          <span className="text-neutral-400 group-hover:text-white transition-colors">
+            pond.audio
+          </span>
         </Link>
-      </div>
-      <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div className="text-sm lg:flex-grow">
+        <div className="flex items-center gap-1 text-sm font-mono">
           <Link
             href="/blog"
-            className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+            className="px-3 py-1.5 text-neutral-500 hover:text-white hover:bg-neutral-800/50 rounded-lg transition-all"
           >
             Blog
           </Link>
           <Link
             href="/email"
-            className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
+            className="px-3 py-1.5 text-neutral-500 hover:text-white hover:bg-neutral-800/50 rounded-lg transition-all"
           >
             Contact
           </Link>
-          <a
-            href="https://als.pond.audio/"
-            className="block mt-4 lg:mx-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
-          >
-            Als Exploder
-          </a>
         </div>
       </div>
     </nav>
-  );
-}
-
-export function NavLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <Nav />
-      {children}
-    </>
   );
 }
