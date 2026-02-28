@@ -389,14 +389,14 @@ export default function Home() {
           ))}
         </div>
         <p className="text-center text-xs text-neutral-700 mt-6">
-          🦞 This footer was added by{" "}
+          This footer was added with{" "}
           <a
-            href="https://openclaw.ai"
+            href="https://github.com/jamierpond/claude-remote"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-neutral-400 transition-colors"
           >
-            OpenClaw
+            claude-remote
           </a>
         </p>
       </footer>
