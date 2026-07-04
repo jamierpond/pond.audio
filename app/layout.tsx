@@ -20,9 +20,9 @@ const jetbrainsMono = JetBrains_Mono({
   ],
 });
 
-const title = "Jamie Pond — Staff Software Engineer in Audio & AI";
+const title = "Jamie Pond — Founding Staff Software Engineer at Tamber";
 const description =
-  "Jamie Pond is a Staff Software Engineer in Los Angeles focused on audio software, AI music tools, and developer infrastructure. Speaker at CppCon and ADC.";
+  "Jamie Pond is the Founding Staff Software Engineer at Tamber, building AI-first music creation in Los Angeles — audio engines, real-time DSP, and AI music tools. Speaker at CppCon and ADC.";
 const ga4MeasurementId = "G-JWWVXENNZ7";
 
 const ogImages = [
@@ -30,7 +30,7 @@ const ogImages = [
     url: "/og",
     width: 1200,
     height: 630,
-    alt: "Jamie Pond - Staff Software Engineer",
+    alt: "Jamie Pond - Founding Staff Software Engineer at Tamber",
     type: "image/png",
   },
 ];
@@ -44,7 +44,10 @@ export const metadata: Metadata = {
   description,
   keywords: [
     "Jamie Pond",
+    "Founding Staff Software Engineer",
     "Staff Software Engineer",
+    "Tamber",
+    "AI music creation",
     "audio software engineer",
     "AI music tools",
     "C++ developer",
@@ -53,7 +56,6 @@ export const metadata: Metadata = {
     "CppCon speaker",
     "yapi",
     "mayk.it",
-    "Tamber",
     "audio DSP",
     "developer tools",
     "SWAR",
@@ -112,11 +114,11 @@ const personJsonLd = {
     height: 400,
   },
   description:
-    "Staff Software Engineer specializing in audio software, AI music tools, and developer infrastructure. EB-1A visa holder, conference speaker at CppCon and ADC, and creator of yapi.",
-  jobTitle: "Staff Software Engineer",
+    "Founding Staff Software Engineer at Tamber, building AI-first music creation — audio engines, real-time DSP, and AI music tools. EB-1A visa holder, conference speaker at CppCon and ADC, and creator of yapi.",
+  jobTitle: "Founding Staff Software Engineer",
   hasOccupation: {
     "@type": "Occupation",
-    name: "Staff Software Engineer",
+    name: "Founding Staff Software Engineer",
     occupationalCategory: "15-1252.00",
     skills:
       "Audio Software Engineering, C++, TypeScript, Real-Time DSP, AI Music Tools",

@@ -1,7 +1,7 @@
 # pond.audio
 
 ## Summary
-Personal site for Jamie Pond, Staff Software Engineer focused on audio software, AI music tools, and developer infrastructure.
+Personal site for Jamie Pond, Founding Staff Software Engineer at Tamber (tamber.music), building AI-first music creation — audio engines, real-time DSP, and AI music tools.
 
 ## Topics
 - audio software engineering

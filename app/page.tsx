@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, Mail, ArrowUpRight } from "lucide-react";
 import GithubCalendar from "./GithubCalendar";
+import { TamberLogo } from "./TamberLogo";
 import { SOCIAL_LINKS, TALKS } from "./socials";
 
 const SOCIALS = [
@@ -30,12 +31,13 @@ const stagger = {
 const WORK = [
   {
     title: "Tamber",
-    role: "Staff Software Engineer",
+    role: "Founding Staff Software Engineer",
     description:
-      "AI-first music creation. Building the audio engine and creator tools.",
+      "AI-first music creation — the future of music should feel human. Building the audio engine, real-time DSP, and creator tools from day one.",
     href: "https://tamber.music/",
     tag: "now",
-    tagColor: "green",
+    tagColor: "mint",
+    featured: true,
   },
   {
     title: "yapi",
@@ -44,7 +46,7 @@ const WORK = [
       "CLI-first API client for HTTP, gRPC, GraphQL, TCP. Open source.",
     href: "https://yapi.run/",
     tag: "oss",
-    tagColor: "blue",
+    tagColor: "periwinkle",
   },
   {
     title: "mayk.it",
@@ -68,27 +70,35 @@ const HIGHLIGHTS = [
     desc: "Viral AI Drake generator",
     href: "https://www.vibe.com/news/tech/drake-song-drayk-it-ai-software-1234730792/",
     tag: "Viral",
-    tagColor: "blue",
+    tagColor: "periwinkle",
   },
   {
     label: "Covers.ai",
     desc: "Social music experiences",
     href: "https://covers.ai/",
     tag: "Acquired",
-    tagColor: "green",
+    tagColor: "mint",
   },
   {
     label: "Discord game",
     desc: "Acquired by Playroom Studio",
     href: "https://www.linkedin.com/feed/update/urn:li:activity:7409399286628712448/",
     tag: "Acquired",
-    tagColor: "green",
+    tagColor: "mint",
   },
 ];
 
+// Tag chips in the Tamber palette: mint, periwinkle, pink
+const TAG_STYLES: Record<string, string> = {
+  mint: "bg-[#3DF1A6]/10 text-[#3DF1A6] border-[#3DF1A6]/40",
+  periwinkle: "bg-[#7E89FF]/10 text-[#7E89FF] border-[#7E89FF]/40",
+  pink: "bg-[#FF557D]/10 text-[#FF557D] border-[#FF557D]/40",
+  default: "bg-neutral-800 text-neutral-400 border-neutral-700",
+};
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-neutral-950 text-white selection:bg-white selection:text-black">
+    <main className="min-h-screen bg-neutral-950 text-white selection:bg-[#3DF1A6] selection:text-black">
       {/* Texture */}
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-0 texture-bg" />
 
@@ -114,7 +124,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-2">
               <div className="flex flex-wrap gap-2">
-                <span className="text-[10px] font-mono px-3 py-1 bg-gradient-to-r from-amber-900/50 to-orange-900/50 text-amber-300 border border-amber-800/50">
+                <span className="text-[10px] font-mono px-3 py-1 bg-[#FF5C1C]/10 text-[#FF5C1C] border border-[#FF5C1C]/40">
                   EB-1A
                 </span>
                 <span className="text-[10px] font-mono px-3 py-1 bg-neutral-900 text-neutral-400 border border-neutral-800">
@@ -122,7 +132,7 @@ export default function Home() {
                 </span>
               </div>
               <p className="text-sm text-neutral-500">
-                Staff Software Engineer
+                Founding Staff Software Engineer
               </p>
             </div>
           </motion.div>
@@ -136,10 +146,32 @@ export default function Home() {
 
           <motion.p
             variants={fadeUp}
-            className="text-xl md:text-2xl text-neutral-400 max-w-2xl mb-10 leading-relaxed"
+            className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xl md:text-2xl text-neutral-300 mb-4"
           >
-            Building audio software, AI music tools, and developer
-            infrastructure.
+            <span>
+              Founding{" "}
+              <span className="text-[#3DF1A6] font-semibold">
+                Staff Software Engineer
+              </span>{" "}
+              at
+            </span>
+            <a
+              href="https://tamber.music/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex text-[#3DF1A6] hover:text-white transition-colors"
+              aria-label="Tamber"
+            >
+              <TamberLogo className="h-7 md:h-8 w-auto" />
+            </a>
+          </motion.p>
+
+          <motion.p
+            variants={fadeUp}
+            className="text-lg md:text-xl text-neutral-400 max-w-2xl mb-10 leading-relaxed"
+          >
+            Building AI-first music creation from day one — audio engines,
+            real-time DSP, and tools that make making music feel human.
           </motion.p>
 
           <motion.div
@@ -159,10 +191,18 @@ export default function Home() {
               </a>
             ))}
             <a
+              href="https://tamber.music"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-1 px-6 py-3 bg-[#3DF1A6] text-black font-bold rounded-xl hover:bg-white transition-all shadow-[0_0_24px_rgba(61,241,166,0.25)] hover:shadow-[0_0_32px_rgba(61,241,166,0.4)]"
+            >
+              tamber.music →
+            </a>
+            <a
               href="https://yapi.run"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-1 px-6 py-3 bg-gradient-to-r from-orange-600 to-amber-600 text-white font-bold rounded-xl hover:from-orange-500 hover:to-amber-500 transition-all"
+              className="px-6 py-3 border border-neutral-700 text-neutral-300 font-bold rounded-xl hover:border-neutral-500 hover:text-white transition-all"
             >
               🐑 yapi.run →
             </a>
@@ -182,10 +222,20 @@ export default function Home() {
           variants={fadeUp}
           className="max-w-3xl text-neutral-400 leading-relaxed"
         >
-          Staff Software Engineer working on audio engines, real-time DSP, and
-          AI-driven music tools. I write C++ and TypeScript, speak at
-          conferences like CppCon and ADC, and build developer tools like yapi.
-          EB-1A visa holder based in Los Angeles.
+          Founding Staff Software Engineer at{" "}
+          <a
+            href="https://tamber.music/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#3DF1A6] hover:text-white transition-colors"
+          >
+            Tamber
+          </a>
+          , where we&apos;re building AI-first music creation — a bionic arm
+          for making music. I work on audio engines, real-time DSP, and
+          AI-driven music tools in C++ and TypeScript, speak at conferences
+          like CppCon and ADC, and build developer tools like yapi. EB-1A visa
+          holder based in Los Angeles.
         </motion.p>
       </motion.section>
 
@@ -212,19 +262,26 @@ export default function Home() {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block p-8 bg-neutral-900/50 border border-neutral-800 rounded-2xl hover:bg-neutral-900 hover:border-neutral-700 transition-all"
+              className={`group block p-8 rounded-2xl transition-all ${
+                item.featured
+                  ? "bg-[#3DF1A6]/[0.04] border border-[#3DF1A6]/30 hover:border-[#3DF1A6]/60 hover:bg-[#3DF1A6]/[0.07]"
+                  : "bg-neutral-900/50 border border-neutral-800 hover:bg-neutral-900 hover:border-neutral-700"
+              }`}
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <h3 className="text-2xl font-bold mb-1 flex items-center gap-3">
-                    {item.title}
+                    {item.featured ? (
+                      <TamberLogo className="h-7 w-auto text-[#3DF1A6]" />
+                    ) : (
+                      item.title
+                    )}
                     {item.tag && (
                       <span
-                        className={`text-[10px] font-mono px-2 py-0.5 ${
-                          item.tagColor === "green"
-                            ? "bg-green-950 text-green-400 border-green-800"
-                            : "bg-blue-950 text-blue-400 border-blue-800"
-                        } border`}
+                        className={`text-[10px] font-mono px-2 py-0.5 border ${
+                          TAG_STYLES[item.tagColor ?? "default"] ??
+                          TAG_STYLES.default
+                        }`}
                       >
                         {item.tag}
                       </span>
@@ -277,12 +334,8 @@ export default function Home() {
                 <p className="text-sm text-neutral-500">{item.desc}</p>
               </div>
               <span
-                className={`text-[10px] font-mono px-2 py-1 shrink-0 ${
-                  item.tagColor === "blue"
-                    ? "bg-blue-950 text-blue-400 border border-blue-800"
-                    : item.tagColor === "green"
-                      ? "bg-green-950 text-green-400 border border-green-800"
-                      : "bg-neutral-800 text-neutral-400 border border-neutral-700"
+                className={`text-[10px] font-mono px-2 py-1 shrink-0 border ${
+                  TAG_STYLES[item.tagColor ?? "default"] ?? TAG_STYLES.default
                 }`}
               >
                 {item.tag}

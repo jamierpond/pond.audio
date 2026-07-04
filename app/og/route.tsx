@@ -50,9 +50,20 @@ export async function GET() {
             style={{
               fontSize: "14px",
               padding: "6px 16px",
-              background: "linear-gradient(to right, #78350f80, #7c2d1280)",
-              color: "#fbbf24",
-              border: "1px solid #92400e80",
+              backgroundColor: "#3DF1A61a",
+              color: "#3DF1A6",
+              border: "1px solid #3DF1A666",
+            }}
+          >
+            TAMBER
+          </span>
+          <span
+            style={{
+              fontSize: "14px",
+              padding: "6px 16px",
+              backgroundColor: "#FF5C1C1a",
+              color: "#FF5C1C",
+              border: "1px solid #FF5C1C66",
             }}
           >
             EB-1A
@@ -86,11 +97,24 @@ export async function GET() {
           fontSize: "28px",
           color: "#a3a3a3",
           lineHeight: 1.4,
-          maxWidth: "800px",
+          maxWidth: "1000px",
+          display: "flex",
+          gap: "10px",
+        }}
+      >
+        <span>Founding Staff Software Engineer at</span>
+        <span style={{ color: "#3DF1A6" }}>Tamber</span>
+      </div>
+      <div
+        style={{
+          fontSize: "28px",
+          color: "#a3a3a3",
+          lineHeight: 1.4,
+          marginTop: "8px",
           display: "flex",
         }}
       >
-        Staff Software Engineer. Audio, AI, and developer tools.
+        AI-first music creation. Audio engines, DSP, and dev tools.
       </div>
       <div
         style={{
