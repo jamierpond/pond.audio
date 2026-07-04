@@ -198,14 +198,6 @@ export default function Home() {
             >
               tamber.music →
             </a>
-            <a
-              href="https://yapi.run"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 border border-neutral-700 text-neutral-300 font-bold rounded-xl hover:border-neutral-500 hover:text-white transition-all"
-            >
-              🐑 yapi.run →
-            </a>
           </motion.div>
         </div>
       </motion.section>
