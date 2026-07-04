@@ -6,12 +6,9 @@ export function Nav() {
       <div className="flex items-center justify-between">
         <Link
           href="/"
-          className="group flex items-center gap-2 text-sm font-mono"
+          className="text-sm font-mono text-neutral-400 hover:text-white transition-colors"
         >
-          <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-[#3DF1A6] to-[#7E89FF] group-hover:shadow-[0_0_8px_rgba(61,241,166,0.6)] transition-shadow" />
-          <span className="text-neutral-400 group-hover:text-white transition-colors">
-            pond.audio
-          </span>
+          pond.audio
         </Link>
         <div className="flex items-center gap-1 text-sm font-mono">
           <Link
