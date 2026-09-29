@@ -15,7 +15,7 @@ const DownloadContactButton = () => {
 export default function Page() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-black">
-      <div className="p-6 bg-white rounded shadow-lg">
+      <div className="p-6 bg-white rounded-sm shadow-lg">
         <h1 className="text-2xl font-bold mb-4">Hello, I&apos;m Jamie</h1>
 
         {/* LinkedIn */}

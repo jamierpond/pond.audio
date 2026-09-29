@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Mail, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Twitter } from "./BrandIcons";
 import GithubCalendar from "./GithubCalendar";
 import { TamberLogo } from "./TamberLogo";
 import { SOCIAL_LINKS, TALKS } from "./socials";
@@ -223,11 +224,11 @@ export default function Home() {
           >
             Tamber
           </a>
-          , where we&apos;re building AI-first music creation — a bionic arm
-          for making music. I work on audio engines, real-time DSP, and
-          AI-driven music tools in C++ and TypeScript, speak at conferences
-          like CppCon and ADC, and build developer tools like yapi. EB-1A visa
-          holder based in Los Angeles.
+          , where we&apos;re building AI-first music creation — a bionic arm for
+          making music. I work on audio engines, real-time DSP, and AI-driven
+          music tools in C++ and TypeScript, speak at conferences like CppCon
+          and ADC, and build developer tools like yapi. EB-1A visa holder based
+          in Los Angeles.
         </motion.p>
       </motion.section>
 
@@ -256,7 +257,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className={`group block p-8 rounded-2xl transition-all ${
                 item.featured
-                  ? "bg-[#3DF1A6]/[0.04] border border-[#3DF1A6]/30 hover:border-[#3DF1A6]/60 hover:bg-[#3DF1A6]/[0.07]"
+                  ? "bg-[#3DF1A6]/4 border border-[#3DF1A6]/30 hover:border-[#3DF1A6]/60 hover:bg-[#3DF1A6]/[0.07]"
                   : "bg-neutral-900/50 border border-neutral-800 hover:bg-neutral-900 hover:border-neutral-700"
               }`}
             >

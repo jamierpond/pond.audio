@@ -210,7 +210,7 @@ function ArticleView({ article, username, branch }: ArticleViewProps) {
             </h1>
 
             <div className="flex flex-wrap items-center gap-3">
-              <span className="text-[10px] font-mono px-3 py-1 bg-gradient-to-r from-amber-900/50 to-orange-900/50 text-amber-300 border border-amber-800/50">
+              <span className="text-[10px] font-mono px-3 py-1 bg-linear-to-r from-amber-900/50 to-orange-900/50 text-amber-300 border border-amber-800/50">
                 {formatDate(commitInfo.date)}
               </span>
               <span className="text-[10px] font-mono px-3 py-1 bg-neutral-900 text-neutral-400 border border-neutral-800">
@@ -306,7 +306,7 @@ function FileBrowserView({ articles }: FileBrowserViewProps) {
                       {desc}
                     </p>
                   )}
-                  <span className="text-[10px] font-mono px-3 py-1 bg-gradient-to-r from-amber-900/50 to-orange-900/50 text-amber-300 border border-amber-800/50">
+                  <span className="text-[10px] font-mono px-3 py-1 bg-linear-to-r from-amber-900/50 to-orange-900/50 text-amber-300 border border-amber-800/50">
                     {formatDate(article.commitInfo.date)}
                   </span>
                 </Link>

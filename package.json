@@ -2,7 +2,7 @@
   "name": "pond.audio",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10.17.1",
+  "packageManager": "pnpm@10.34.6+sha512.7e1ae66a83a9143c118cc1944f37cc4f2b8acddeda4b001cfa78908f6e46e45e15292739ca6c9d026426cc757e9318cc98c5551d6a16c165097b0028ba87b4e6",
   "pnpm": {
     "onlyBuiltDependencies": [
       "sharp"
@@ -19,33 +19,34 @@
     "ci:fix": "knip --fix && eslint --fix . && prettier --write ."
   },
   "dependencies": {
-    "@next/third-parties": "^16.1.6",
-    "country-to-currency": "^1.1.5",
+    "@next/third-parties": "^16.3.6",
+    "country-to-currency": "^3.0.1",
     "currency-symbol-map": "^5.1.0",
-    "framer-motion": "^12.33.0",
-    "lucide-react": "^0.562.0",
+    "framer-motion": "^13.4.4",
+    "lucide-react": "^1.48.0",
     "madea-blog-core": "workspace:*",
-    "next": "^16.1.6",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-github-calendar": "^4.5.11",
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-github-calendar": "^5.0.9",
     "react-markdown": "^10.1.0",
-    "react-qr-code": "^2.0.18",
+    "react-qr-code": "^2.2.0",
     "rehype-highlight": "^7.0.2",
     "remark-gfm": "^4.0.1",
-    "sharp": "^0.34.5"
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
-    "@types/node": "^22.10.5",
-    "@types/react": "^19.0.2",
-    "@types/react-dom": "^19.0.0",
-    "autoprefixer": "^10.4.14",
-    "eslint": "^9.0.0",
-    "eslint-config-next": "^16.1.6",
-    "knip": "^5.83.1",
-    "postcss": "^8.4.25",
-    "prettier": "^3.8.1",
-    "tailwindcss": "^3.3.2",
-    "typescript": "^5.7.2"
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^10.11.0",
+    "eslint-config-next": "^16.3.6",
+    "espree": "^11.2.0",
+    "knip": "^6.38.0",
+    "postcss": "^8.5.28",
+    "prettier": "^3.9.9",
+    "tailwindcss": "^4.3.3",
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   }
 }

@@ -147,7 +147,7 @@ export default function Page() {
               return (
                 <div
                   key={colIndex}
-                  className={`w-12 h-12 ${colorClass} flex items-center justify-center text-2xl font-bold rounded`}
+                  className={`w-12 h-12 ${colorClass} flex items-center justify-center text-2xl font-bold rounded-sm`}
                 >
                   {letter}
                 </div>

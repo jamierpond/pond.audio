@@ -1,6 +1,6 @@
 import * as fs from "fs/promises";
 import * as path from "path";
-import simpleGit, { SimpleGit } from "simple-git";
+import { simpleGit, SimpleGit } from "simple-git";
 import type {
   DataProvider,
   FileInfo,

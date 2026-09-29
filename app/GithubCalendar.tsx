@@ -1,6 +1,6 @@
 "use client";
 
-import GitHubCalendar from "react-github-calendar";
+import { GitHubCalendar } from "react-github-calendar";
 
 export default function Calendar() {
   return (
@@ -9,8 +9,8 @@ export default function Calendar() {
         fontSize={8}
         blockSize={5}
         blockMargin={1}
-        hideColorLegend={true}
-        hideTotalCount={true}
+        showColorLegend={false}
+        showTotalCount={false}
         username="jamierpond"
       />
     </div>
