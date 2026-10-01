@@ -26,45 +26,32 @@ export default function Home() {
       <h1 className="text-2xl font-bold mb-6">Jamie Pond</h1>
 
       <p className="mb-4">
-        I&apos;m a software engineer in Los Angeles. I work on audio: real-time
-        DSP, audio engines, and the tools around them, mostly in C++ and
-        TypeScript.
-      </p>
-      <p className="mb-4">
-        Right now I&apos;m the founding staff engineer at{" "}
-        <A href="https://tamber.music/">Tamber</A>, where we&apos;re building
-        music creation tools with AI in them. Before that I was lead audio
-        engineer at <A href="https://www.mayk.it/">mayk.it</A>. We made{" "}
+        I work on all things at <A href="https://tamber.music/">Tamber</A>.
+        Before that, <A href="https://www.mayk.it/">mayk.it</A>, where we made{" "}
         <A href="https://www.vibe.com/news/tech/drake-song-drayk-it-ai-software-1234730792/">
           Drayk It
         </A>
-        , which went viral, and <A href="https://covers.ai/">Covers.ai</A> and a{" "}
+        , <A href="https://covers.ai/">Covers.ai</A> and a{" "}
         <A href="https://www.linkedin.com/feed/update/urn:li:activity:7409399286628712448/">
           Discord game
         </A>
-        , both of which were acquired.
+        . Mostly C++ and TypeScript. Los Angeles.
       </p>
       <p className="mb-4">
-        I also make <A href="https://yapi.run/">yapi</A>, a command-line API
-        client that speaks HTTP, gRPC, GraphQL and TCP. It&apos;s open source.
-        Other things I&apos;ve made:{" "}
+        I made <A href="https://yapi.run/">yapi</A>. Also{" "}
         <A href="https://hollywoodrunclub.com">Hollywood Run Club</A>,{" "}
         <A href="https://madea.blog">madea.blog</A>,{" "}
         <A href="https://cowsinlove.com">Cows In Love</A> and{" "}
         <A href="https://mr-nibbles.com">Mr Nibbles</A>.
       </p>
       <p className="mb-4">
-        I&apos;m in the US on an EB-1A. I&apos;m on{" "}
-        <A href="https://github.com/jamierpond">GitHub</A>,{" "}
-        <A href="https://x.com/jamiepondx">X</A> and{" "}
-        <A href="https://www.linkedin.com/in/jamierpond">LinkedIn</A>, or you
-        can <A href="mailto:jamie@pond.audio">email me</A>.
+        <A href="https://github.com/jamierpond">GitHub</A> ·{" "}
+        <A href="https://x.com/jamiepondx">X</A> ·{" "}
+        <A href="https://www.linkedin.com/in/jamierpond">LinkedIn</A> ·{" "}
+        <A href="mailto:jamie@pond.audio">Email</A>
       </p>
 
       <h2 className="text-lg font-bold mt-12 mb-4">Talks</h2>
-      <p className="mb-4">
-        I&apos;ve spoken at CppCon, C++ on Sea and ADC. Click a still to watch.
-      </p>
       <div className="grid sm:grid-cols-2 gap-6">
         {TALKS.map((talk) => (
           <a

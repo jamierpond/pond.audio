@@ -67,7 +67,8 @@ export function extractDescription(content: string): string {
   return description;
 }
 
-/** Check if a file path is a markdown file */
+/** Check if a file path is a published markdown file. `*.draft.md` is hidden. */
 export function isMarkdownFile(path: string): boolean {
+  if (/\.draft\.mdx?$/.test(path)) return false;
   return path.endsWith(".md") || path.endsWith(".mdx");
 }
