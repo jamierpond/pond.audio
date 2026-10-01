@@ -1,60 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import GithubCalendar from "./GithubCalendar";
-import { SOCIAL_LINKS, TALKS } from "./socials";
-
-const WORK = [
-  {
-    title: "Tamber",
-    role: "Founding Staff Software Engineer",
-    description:
-      "AI-first music creation — the future of music should feel human. Building the audio engine, real-time DSP, and creator tools from day one.",
-    href: "https://tamber.music/",
-  },
-  {
-    title: "yapi",
-    role: "Creator",
-    description:
-      "CLI-first API client for HTTP, gRPC, GraphQL, TCP. Open source.",
-    href: "https://yapi.run/",
-  },
-  {
-    title: "mayk.it",
-    role: "Lead Audio Engineer",
-    description:
-      "UGC music tools. Drayk It went viral. Covers.ai and Discord game both acquired.",
-    href: "https://www.mayk.it/",
-  },
-];
-
-const HIGHLIGHTS = [
-  {
-    label: "Drayk It",
-    desc: "Viral AI Drake generator",
-    href: "https://www.vibe.com/news/tech/drake-song-drayk-it-ai-software-1234730792/",
-  },
-  {
-    label: "Covers.ai",
-    desc: "Social music experiences, acquired",
-    href: "https://covers.ai/",
-  },
-  {
-    label: "Discord game",
-    desc: "Acquired by Playroom Studio",
-    href: "https://www.linkedin.com/feed/update/urn:li:activity:7409399286628712448/",
-  },
-];
-
-const PROJECTS = [
-  { href: "https://hollywoodrunclub.com", label: "Hollywood Run Club" },
-  { href: "https://madea.blog", label: "madea.blog" },
-  { href: "https://cowsinlove.com", label: "Cows In Love" },
-  { href: "https://mr-nibbles.com", label: "Mr Nibbles" },
-];
+import { TALKS } from "./socials";
 
 const link = "text-sky-300 underline underline-offset-2 hover:text-sky-200";
 
-function Ext({ href, children }: { href: string; children: React.ReactNode }) {
+function A({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className={link}>
       {children}
@@ -72,75 +23,71 @@ export default function Home() {
         height={96}
         className="rounded-sm mb-6"
       />
-      <h1 className="text-2xl font-bold mb-1">Jamie Pond</h1>
-      <p className="text-neutral-400 mb-6">
-        Founding Staff Software Engineer at{" "}
-        <Ext href="https://tamber.music/">Tamber</Ext>
-      </p>
+      <h1 className="text-2xl font-bold mb-6">Jamie Pond</h1>
 
       <p className="mb-4">
-        Building AI-first music creation from day one — audio engines, real-time
-        DSP, and tools that make making music feel human.
+        I&apos;m a software engineer in Los Angeles. I work on audio: real-time
+        DSP, audio engines, and the tools around them, mostly in C++ and
+        TypeScript.
       </p>
       <p className="mb-4">
-        Founding Staff Software Engineer at{" "}
-        <Ext href="https://tamber.music/">Tamber</Ext>, where we&apos;re
-        building AI-first music creation — a bionic arm for making music. I work
-        on audio engines, real-time DSP, and AI-driven music tools in C++ and
-        TypeScript, speak at conferences like CppCon and ADC, and build
-        developer tools like yapi. EB-1A visa holder based in Los Angeles.
+        Right now I&apos;m the founding staff engineer at{" "}
+        <A href="https://tamber.music/">Tamber</A>, where we&apos;re building
+        music creation tools with AI in them. Before that I was lead audio
+        engineer at <A href="https://www.mayk.it/">mayk.it</A>. We made{" "}
+        <A href="https://www.vibe.com/news/tech/drake-song-drayk-it-ai-software-1234730792/">
+          Drayk It
+        </A>
+        , which went viral, and <A href="https://covers.ai/">Covers.ai</A> and a{" "}
+        <A href="https://www.linkedin.com/feed/update/urn:li:activity:7409399286628712448/">
+          Discord game
+        </A>
+        , both of which were acquired.
       </p>
-      <p>
-        {SOCIAL_LINKS.map(({ href, label }, i) => (
-          <span key={label}>
-            {i > 0 && " · "}
-            <Ext href={href}>{label}</Ext>
-          </span>
-        ))}
+      <p className="mb-4">
+        I also make <A href="https://yapi.run/">yapi</A>, a command-line API
+        client that speaks HTTP, gRPC, GraphQL and TCP. It&apos;s open source.
+        Other things I&apos;ve made:{" "}
+        <A href="https://hollywoodrunclub.com">Hollywood Run Club</A>,{" "}
+        <A href="https://madea.blog">madea.blog</A>,{" "}
+        <A href="https://cowsinlove.com">Cows In Love</A> and{" "}
+        <A href="https://mr-nibbles.com">Mr Nibbles</A>.
+      </p>
+      <p className="mb-4">
+        I&apos;m in the US on an EB-1A. I&apos;m on{" "}
+        <A href="https://github.com/jamierpond">GitHub</A>,{" "}
+        <A href="https://x.com/jamiepondx">X</A> and{" "}
+        <A href="https://www.linkedin.com/in/jamierpond">LinkedIn</A>, or you
+        can <A href="mailto:jamie@pond.audio">email me</A>.
       </p>
 
-      <h2 className="text-lg font-bold mt-10 mb-3">Work</h2>
-      <ul className="space-y-3">
-        {WORK.map((item) => (
-          <li key={item.title}>
-            <Ext href={item.href}>{item.title}</Ext> — {item.role}
-            <br />
-            <span className="text-neutral-400">{item.description}</span>
-          </li>
-        ))}
-      </ul>
-
-      <h2 className="text-lg font-bold mt-10 mb-3">Highlights</h2>
-      <ul className="list-disc pl-5 space-y-1">
-        {HIGHLIGHTS.map((item) => (
-          <li key={item.label}>
-            <Ext href={item.href}>{item.label}</Ext> — {item.desc}
-          </li>
-        ))}
-      </ul>
-
-      <h2 className="text-lg font-bold mt-10 mb-3">Talks</h2>
-      <ul className="list-disc pl-5 space-y-1">
+      <h2 className="text-lg font-bold mt-12 mb-4">Talks</h2>
+      <p className="mb-4">
+        I&apos;ve spoken at CppCon, C++ on Sea and ADC. Click a still to watch.
+      </p>
+      <div className="grid sm:grid-cols-2 gap-6">
         {TALKS.map((talk) => (
-          <li key={talk.videoId}>
-            <Ext href={`https://www.youtube.com/watch?v=${talk.videoId}`}>
-              {talk.title}
-            </Ext>{" "}
-            <span className="text-neutral-400">({talk.conf})</span>
-          </li>
+          <a
+            key={talk.videoId}
+            href={`https://www.youtube.com/watch?v=${talk.videoId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
+          >
+            <Image
+              src={`https://img.youtube.com/vi/${talk.videoId}/hqdefault.jpg`}
+              alt={talk.title}
+              width={480}
+              height={360}
+              className="w-full aspect-video object-cover rounded-sm mb-2"
+            />
+            <span className="block">{talk.title}</span>
+            <span className="block text-sm text-neutral-400">{talk.conf}</span>
+          </a>
         ))}
-      </ul>
+      </div>
 
-      <h2 className="text-lg font-bold mt-10 mb-3">Projects</h2>
-      <ul className="list-disc pl-5 space-y-1">
-        {PROJECTS.map(({ href, label }) => (
-          <li key={label}>
-            <Ext href={href}>{label}</Ext>
-          </li>
-        ))}
-      </ul>
-
-      <h2 className="text-lg font-bold mt-10 mb-3">Open source activity</h2>
+      <h2 className="text-lg font-bold mt-12 mb-4">GitHub</h2>
       <div className="overflow-x-auto">
         <GithubCalendar />
       </div>
@@ -151,9 +98,9 @@ export default function Home() {
             Blog
           </Link>{" "}
           · This footer was added with{" "}
-          <Ext href="https://github.com/jamierpond/claude-remote">
+          <A href="https://github.com/jamierpond/claude-remote">
             claude-remote
-          </Ext>
+          </A>
           .
         </p>
       </footer>
